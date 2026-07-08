@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F1E8D0">
+<title>Лампада — подготовка в Сретенскую духовную академию</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;0,700;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1E8D0; --bg2:#FBF6E9; --card:#FFFDF6;
+  --ink:#17233B; --ink-soft:#4B5670; --ink-faint:#8A8471;
+  --gold:#BE8F2E; --gold-bright:#E0B54A; --gold-soft:#F0E1B4;
+  --rubric:#A6321E; --rubric-soft:#E7C6BC;
+  --green:#4B7A46; --green-soft:#DCE7D2;
+  --blue:#2E5C86; --blue-soft:#D6E2ED;
+  --line:rgba(23,35,59,.14); --line2:rgba(23,35,59,.08);
+  --shadow:0 1px 0 rgba(23,35,59,.04),0 8px 24px rgba(23,35,59,.08);
+  --r:18px; --r-lg:26px;
+  --ui:'Golos Text',system-ui,sans-serif;
+  --serif:'Lora',Georgia,serif;
+  --display:'Cormorant',Georgia,serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--ui); color:var(--ink); background:var(--bg);
+  background-image:radial-gradient(1200px 600px at 50% -10%,#FBF4DE 0%,var(--bg) 60%);
+  min-height:100dvh; line-height:1.5; -webkit-font-smoothing:antialiased;
+  overscroll-behavior-y:none;
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:8px}
+.app{max-width:560px;margin:0 auto;min-height:100dvh;position:relative;padding-bottom:88px}
+
+/* ---------- top bar ---------- */
+.top{position:sticky;top:0;z-index:40;background:rgba(241,232,208,.86);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line2);padding:10px 16px calc(10px)}
+.top-row{display:flex;align-items:center;gap:10px}
+.brand{display:flex;align-items:center;gap:9px;margin-right:auto;min-width:0}
+.brand .mark{width:30px;height:30px;flex:0 0 auto}
+.brand b{font-family:var(--display);font-weight:700;font-size:23px;letter-spacing:.3px;line-height:1}
+.brand small{display:block;font-size:10.5px;color:var(--ink-faint);letter-spacing:.2px;margin-top:1px;font-weight:500}
+.stat{display:flex;align-items:center;gap:5px;font-weight:600;font-size:14.5px;padding:5px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line2);box-shadow:var(--shadow)}
+.stat svg{width:17px;height:17px}
+.stat.streak{color:var(--rubric)} .stat.xp{color:var(--gold)}
+
+/* ---------- generic ---------- */
+.wrap{padding:16px}
+.h-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+.h1{font-family:var(--display);font-weight:600;font-size:34px;line-height:1.02;margin:0 0 4px;letter-spacing:.2px}
+.lead{color:var(--ink-soft);font-size:15px;margin:0 0 14px}
+.rubric-initial{float:left;font-family:var(--display);font-weight:700;color:var(--rubric);font-size:60px;line-height:.78;margin:6px 12px 0 0}
+
+/* daily goal ring card */
+.goalcard{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow);margin-bottom:18px}
+.ring{position:relative;width:66px;height:66px;flex:0 0 auto}
+.ring svg{transform:rotate(-90deg)}
+.ring .rc{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;font-size:15px;color:var(--gold)}
+.goalcard .gt{font-family:var(--display);font-size:22px;font-weight:600;line-height:1.05}
+.goalcard .gs{font-size:13px;color:var(--ink-soft);margin-top:2px}
+
+/* ---------- path / units ---------- */
+.section-label{display:flex;align-items:center;gap:12px;margin:26px 2px 14px}
+.section-label .n{font-family:var(--display);font-weight:700;color:var(--rubric);font-size:26px;line-height:1;width:30px;text-align:center;flex:0 0 auto}
+.section-label .tt{font-family:var(--display);font-size:22px;font-weight:600;line-height:1.05}
+.section-label .ln{flex:1;height:1px;background:var(--line)}
+.units{display:flex;flex-direction:column;gap:12px}
+.unit{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);transition:transform .12s ease}
+.unit:active{transform:scale(.99)}
+.unit .ico{width:46px;height:46px;flex:0 0 auto;border-radius:14px;display:grid;place-items:center;background:var(--gold-soft);font-size:23px;border:1px solid rgba(190,143,46,.35)}
+.unit.done .ico{background:var(--green-soft);border-color:rgba(75,122,70,.35)}
+.unit.locked{opacity:.55}
+.unit.locked .ico{background:#eee4cf;filter:grayscale(.4)}
+.unit .ub{min-width:0;flex:1}
+.unit .ut{font-weight:600;font-size:15.5px;line-height:1.2}
+.unit .us{font-size:12.5px;color:var(--ink-soft);margin-top:2px}
+.unit .prog{height:6px;border-radius:99px;background:var(--line2);margin-top:8px;overflow:hidden}
+.unit .prog i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));border-radius:99px}
+.unit .chev{flex:0 0 auto;color:var(--ink-faint)}
+.unit .check{color:var(--green)}
+.badge{font-size:10.5px;font-weight:700;letter-spacing:.4px;padding:2px 7px;border-radius:99px;background:var(--rubric-soft);color:var(--rubric);text-transform:uppercase}
+.badge.new{background:var(--blue-soft);color:var(--blue)}
+
+/* ---------- bottom nav ---------- */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:50;display:flex;justify-content:center;
+  background:rgba(251,246,233,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}
+.nav-inner{display:flex;gap:2px;width:100%;max-width:560px}
+.nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border-radius:14px;color:var(--ink-faint);font-size:10.5px;font-weight:600}
+.nav button svg{width:23px;height:23px}
+.nav button.on{color:var(--rubric)}
+.nav button.on svg{stroke:var(--rubric)}
+
+/* ---------- lesson player ---------- */
+.player{position:fixed;inset:0;z-index:100;background:var(--bg);
+  background-image:radial-gradient(900px 500px at 50% -10%,#FBF4DE,var(--bg) 60%);
+  display:flex;flex-direction:column;max-width:560px;margin:0 auto}
+.p-head{display:flex;align-items:center;gap:12px;padding:14px 16px 6px}
+.p-head .x{font-size:22px;color:var(--ink-faint);width:34px;height:34px;border-radius:10px;display:grid;place-items:center}
+.pbar{flex:1;height:12px;border-radius:99px;background:#e6dcc1;overflow:hidden}
+.pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));border-radius:99px;transition:width .35s cubic-bezier(.4,1.2,.5,1)}
+.p-head .hearts{display:flex;align-items:center;gap:3px;color:var(--rubric);font-weight:700;font-size:14px}
+.p-body{flex:1;overflow-y:auto;padding:8px 18px 12px;-webkit-overflow-scrolling:touch}
+.qtag{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin:10px 0 10px}
+.q{font-family:var(--display);font-size:27px;font-weight:600;line-height:1.12;margin:0 0 18px}
+.q.sm{font-size:22px}
+
+/* teaching / info card */
+.info{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px;box-shadow:var(--shadow);font-family:var(--serif);font-size:16px;line-height:1.62}
+.info h4{font-family:var(--ui);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--rubric);margin:0 0 8px;font-weight:700}
+.info p{margin:0 0 11px} .info p:last-child{margin:0}
+.info b{color:var(--ink)} .info em{color:var(--blue);font-style:italic}
+.info .ref{color:var(--gold);font-weight:600;font-style:normal;font-family:var(--ui);font-size:13px}
+.slav{font-family:var(--serif);font-style:italic;color:var(--ink);background:var(--gold-soft);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 12px 12px 0;margin:4px 0 12px;line-height:1.6}
+
+/* options */
+.opts{display:flex;flex-direction:column;gap:11px}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:15px;padding:15px 16px;font-size:15.5px;font-weight:500;text-align:left;box-shadow:var(--shadow);transition:transform .1s,border-color .12s,background .12s}
+.opt:active{transform:scale(.99)}
+.opt .k{width:26px;height:26px;flex:0 0 auto;border-radius:8px;border:1.5px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--ink-soft)}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt.sel .k{border-color:var(--blue);color:var(--blue)}
+.opt.correct{border-color:var(--green);background:var(--green-soft)}
+.opt.correct .k{background:var(--green);border-color:var(--green);color:#fff}
+.opt.wrong{border-color:var(--rubric);background:#f6e2dc}
+.opt.wrong .k{background:var(--rubric);border-color:var(--rubric);color:#fff}
+.opt.dim{opacity:.5}
+
+/* true/false */
+.tf{display:flex;gap:12px}
+.tf .opt{flex:1;justify-content:center;font-size:17px;font-weight:600}
+
+/* flip card */
+.flip{perspective:1400px}
+.flip-in{position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,1,.4,1);min-height:230px}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.flip-face.back{transform:rotateY(180deg);background:linear-gradient(180deg,#FFFDF6,#FBF3DE)}
+.flip .fq{font-family:var(--display);font-size:25px;font-weight:600;line-height:1.15}
+.flip .fa{font-family:var(--serif);font-size:16.5px;line-height:1.6}
+.flip .tap{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;color:var(--ink-faint);font-weight:600;letter-spacing:.4px}
+
+/* recite / prayer */
+.recite{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:20px 20px 16px}
+.recite .rt{font-family:var(--display);font-size:23px;font-weight:600;margin:0 0 4px}
+.recite .rn{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px}
+.recite .rx{font-family:var(--serif);font-size:17px;line-height:1.72;color:var(--ink)}
+.recite.hidden .rx{filter:blur(7px);user-select:none}
+.recite .cover{text-align:center;margin-top:14px}
+
+/* fill in the blanks */
+.fill{font-family:var(--serif);font-size:18px;line-height:2.15;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.blank{display:inline-block;min-width:74px;border-bottom:2px solid var(--gold);text-align:center;color:var(--rubric);font-weight:600;padding:0 6px;font-family:var(--ui);font-size:15px}
+.blank.empty{color:transparent}
+.bank{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.chip{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:9px 14px;font-size:15px;font-weight:600;box-shadow:var(--shadow);font-family:var(--ui)}
+.chip:active{transform:scale(.96)}
+.chip.used{opacity:.35;pointer-events:none}
+.chip.ok{border-color:var(--green);background:var(--green-soft)}
+.chip.no{border-color:var(--rubric);background:#f6e2dc}
+
+/* match */
+.match{display:flex;gap:12px}
+.mcol{flex:1;display:flex;flex-direction:column;gap:10px}
+.mitem{background:var(--card);border:1.5px solid var(--line);border-radius:13px;padding:13px 12px;font-size:14px;font-weight:600;text-align:center;box-shadow:var(--shadow);line-height:1.25}
+.mitem.sel{border-color:var(--blue);background:var(--blue-soft)}
+.mitem.ok{border-color:var(--green);background:var(--green-soft);opacity:.65}
+.mitem.no{border-color:var(--rubric);background:#f6e2dc;animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* order */
+.order{display:flex;flex-direction:column;gap:9px}
+.oitem{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:13px;padding:12px 14px;font-size:14.5px;font-weight:500;box-shadow:var(--shadow)}
+.oitem .on{width:24px;height:24px;flex:0 0 auto;border-radius:7px;background:var(--gold-soft);display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--gold)}
+.oitem .ar{margin-left:auto;display:flex;flex-direction:column;gap:2px}
+.oitem .ar button{width:30px;height:22px;border-radius:6px;background:var(--bg);display:grid;place-items:center;color:var(--ink-soft)}
+.oitem.ok{border-color:var(--green);background:var(--green-soft)}
+.oitem.no{border-color:var(--rubric)}
+
+/* footer feedback + button */
+.p-foot{padding:12px 18px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line2);background:var(--bg2)}
+.fb{border-radius:16px;padding:12px 14px;margin-bottom:10px;font-size:14.5px;line-height:1.45;display:flex;gap:10px;align-items:flex-start}
+.fb .fi{flex:0 0 auto;width:24px;height:24px;border-radius:99px;display:grid;place-items:center;font-weight:800;color:#fff;font-size:14px}
+.fb.good{background:var(--green-soft);color:#2f5a2b} .fb.good .fi{background:var(--green)}
+.fb.bad{background:#f6e2dc;color:#7c2515} .fb.bad .fi{background:var(--rubric)}
+.fb b{display:block;margin-bottom:2px}
+.btn{width:100%;border-radius:16px;padding:15px;font-size:16px;font-weight:700;letter-spacing:.3px;background:var(--ink);color:#FBF6E9;box-shadow:var(--shadow);transition:transform .1s,opacity .1s}
+.btn:active{transform:translateY(1px)}
+.btn.gold{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#3a2c07}
+.btn.green{background:var(--green);color:#fff}
+.btn.rub{background:var(--rubric);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink-soft);box-shadow:none;border:1.5px solid var(--line)}
+.btn[disabled]{opacity:.4;pointer-events:none}
+.btn-row{display:flex;gap:10px}
+
+/* lesson complete */
+.done-screen{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:8px}
+.done-screen .halo{width:120px;height:120px;margin-bottom:6px}
+.done-screen h2{font-family:var(--display);font-size:36px;font-weight:600;margin:0}
+.done-screen .rw{display:flex;gap:12px;margin:16px 0 4px}
+.rwcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 18px;box-shadow:var(--shadow);min-width:96px}
+.rwcard .rl{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-faint)}
+.rwcard .rv{font-family:var(--display);font-size:30px;font-weight:600;line-height:1.1}
+.rwcard.g .rv{color:var(--gold)} .rwcard.r .rv{color:var(--rubric)}
+
+/* reference / plan / misc pages */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow);margin-bottom:12px}
+.card h3{font-family:var(--display);font-size:21px;font-weight:600;margin:0 0 8px}
+.acc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin-bottom:10px;overflow:hidden}
+.acc>button{width:100%;display:flex;align-items:center;gap:12px;padding:15px 16px;text-align:left}
+.acc>button .ai{width:34px;height:34px;flex:0 0 auto;border-radius:10px;background:var(--gold-soft);display:grid;place-items:center;font-size:18px}
+.acc>button .at{font-weight:600;font-size:15px;flex:1}
+.acc>button .ac{color:var(--ink-faint);transition:transform .2s}
+.acc.open>button .ac{transform:rotate(180deg)}
+.acc .abody{display:none;padding:0 18px 16px;font-family:var(--serif);font-size:15.5px;line-height:1.62}
+.acc.open .abody{display:block}
+.acc .abody p{margin:0 0 10px} .acc .abody p:last-child{margin:0}
+.acc .abody .slav{font-size:15px}
+.acc .abody ul{margin:0 0 10px;padding-left:20px} .acc .abody li{margin-bottom:5px}
+
+.plan-day{display:flex;gap:14px;margin-bottom:2px}
+.plan-rail{display:flex;flex-direction:column;align-items:center;flex:0 0 auto}
+.plan-dot{width:38px;height:38px;border-radius:12px;background:var(--gold-soft);border:1px solid rgba(190,143,46,.4);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:19px;color:var(--gold)}
+.plan-day.done .plan-dot{background:var(--green);color:#fff;border-color:var(--green)}
+.plan-day.today .plan-dot{background:var(--rubric);color:#fff;border-color:var(--rubric);box-shadow:0 0 0 4px var(--rubric-soft)}
+.plan-line{flex:1;width:2px;background:var(--line);margin:2px 0}
+.plan-body{flex:1;padding-bottom:18px}
+.plan-body .pd-t{font-weight:700;font-size:15px}
+.plan-body .pd-s{font-size:13px;color:var(--ink-soft);margin:3px 0 8px}
+.tagrow{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:99px;background:var(--bg);border:1px solid var(--line2);color:var(--ink-soft)}
+
+.note{background:var(--blue-soft);border:1px solid rgba(46,92,134,.25);border-radius:var(--r);padding:14px 16px;font-size:14px;line-height:1.55;color:#20456a;margin-bottom:14px}
+.note b{color:var(--blue)}
+.warn{background:#f8ecc9;border:1px solid rgba(190,143,46,.4);border-radius:var(--r);padding:14px 16px;font-size:14px;line-height:1.55;color:#6a5212;margin-bottom:14px}
+
+.toast{position:fixed;left:50%;bottom:104px;transform:translateX(-50%) translateY(20px);z-index:200;background:var(--ink);color:#FBF6E9;padding:11px 18px;border-radius:14px;font-size:14px;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.3s;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.footer-note{text-align:center;color:var(--ink-faint);font-size:12px;padding:22px 20px 8px;line-height:1.5}
+.reset-btn{color:var(--rubric);font-weight:600;text-decoration:underline;font-size:12px}
+
+@media (max-width:360px){.h1{font-size:29px}.q{font-size:23px}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.05ms!important}}
+
+/* --- синхронизация --- */
+.sync-card{display:flex;align-items:center;gap:12px;background:var(--blue-soft,#E8EEF5);border:1px solid rgba(46,92,134,.25);border-radius:14px;padding:12px 14px;margin:16px 0 4px}
+.sc-ic{font-size:22px;flex:none}
+.sc-tx{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.sc-tx b{font-family:var(--ui);font-size:13.5px;color:var(--ink)}
+.sc-tx span{font-family:var(--ui);font-size:12px;color:#5a6b7d;line-height:1.35}
+.sc-b{flex:none;font-family:var(--ui);font-weight:600;font-size:13px;color:#fff;background:var(--blue);border:none;border-radius:9px;padding:9px 13px;cursor:pointer}
+.sc-b:active{transform:scale(.97)}
+.sync-wrap{max-width:520px;margin:0 auto;padding:46px 22px 30px;position:relative;min-height:100%;box-sizing:border-box;display:flex;flex-direction:column}
+.sync-h{font-family:var(--display);font-size:30px;color:var(--ink);margin:.05em 0 .3em;font-weight:600}
+.sync-ta{width:100%;min-height:120px;resize:vertical;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;line-height:1.5;padding:12px;border:1.5px solid rgba(23,35,59,.2);border-radius:12px;background:#fff;color:var(--ink);margin:6px 0 14px;box-sizing:border-box;word-break:break-all}
+.sync-ta:focus{outline:none;border-color:var(--blue)}
+
+/* --- теория (reader перед тестом) --- */
+.theory{max-width:560px;margin:0 auto;padding:6px 2px 20px}
+.th-tag{font-family:var(--ui);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--rubric);margin-bottom:8px}
+.th-h{font-family:var(--display);font-size:26px;line-height:1.15;color:var(--ink);margin:0 0 14px;font-weight:600}
+.th-body{font-family:var(--serif);font-size:17px;line-height:1.62;color:#26313f}
+.th-body p{margin:0 0 12px}
+.th-body b{color:var(--ink);font-weight:600}
+/* --- расписание экзаменов --- */
+.exam-card{background:#fff;border:1px solid rgba(23,35,59,.1);border-radius:16px;padding:14px 14px 10px;margin:2px 0 20px;box-shadow:0 4px 16px rgba(23,35,59,.05)}
+.ec-h{font-family:var(--ui);font-weight:700;font-size:13px;color:var(--ink);margin-bottom:10px}
+.exrow{display:flex;align-items:center;gap:11px;padding:9px 0;border-top:1px solid #efe7d4}
+.exrow:first-of-type{border-top:none}
+.exrow.past{opacity:.5}
+.ex-ic{font-size:20px;flex:none;width:26px;text-align:center}
+.ex-mid{flex:1;min-width:0}
+.ex-t{font-family:var(--ui);font-weight:600;font-size:14px;color:var(--ink)}
+.ex-d{font-family:var(--ui);font-size:11.5px;color:#8a97a6;margin-bottom:5px}
+.ex-bar{height:5px;border-radius:3px;background:#ece3cf;overflow:hidden}
+.ex-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-bright));border-radius:3px}
+.ex-p{flex:none;font-family:var(--ui);font-weight:800;font-size:15px;color:var(--gold);text-align:center;line-height:1.05}
+.ex-p span{display:block;font-weight:600;font-size:9px;letter-spacing:.03em;color:#a9b3bf}
+.ec-note{font-family:var(--ui);font-size:11px;line-height:1.4;color:#97a1ad;margin-top:8px}
+/* --- точки прогонов на карточке юнита --- */
+.passrow{display:flex;align-items:center;gap:8px;margin-top:5px}
+.pdots{display:inline-flex;gap:4px;flex:none}
+.pd{width:9px;height:9px;border-radius:50%;background:#ded3ba;box-shadow:inset 0 0 0 1px rgba(0,0,0,.04)}
+.pd.on{background:var(--gold-bright);box-shadow:0 0 0 1px var(--gold)}
+.badge.ok{background:var(--green);color:#fff}
+.passrow .prog{flex:1;margin:0}
+/* --- план: круги и экзамены --- */
+.round-sep{font-family:var(--ui);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--rubric);margin:18px 0 8px;padding-left:2px}
+.plan-day.past .plan-dot{background:#d8cdb4;color:#fff}
+.plan-day.exam .plan-dot.ex{background:var(--ink);color:#fff;font-size:15px}
+.tag.full{border-color:var(--green);background:rgba(75,122,70,.08)}
+.tag .tp{font-size:10px;color:#8a97a6;margin-left:3px;font-weight:700}
+.tag.full .tp{color:var(--green)}
+/* --- «суть» в справочнике --- */
+.ref-learn{background:rgba(190,143,46,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:12px;font-family:var(--serif);font-size:14.5px;line-height:1.55}
+.ref-learn p{margin:0 0 7px}
+.rl-tag{display:inline-block;font-family:var(--ui);font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--rubric);margin-bottom:4px}
+
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="top">
+    <div class="top-row">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 4c1.6 3.2 4.4 5 4.4 8.2 0 2.6-2 4.4-4.4 4.4s-4.4-1.8-4.4-4.4C15.6 9 18.4 7.2 20 4z" fill="#E0B54A" stroke="#BE8F2E" stroke-width="1"/>
+          <path d="M20 8.5c.8 1.8 2.2 2.7 2.2 4.3 0 1.4-1 2.3-2.2 2.3s-2.2-.9-2.2-2.3c0-1.6 1.4-2.5 2.2-4.3z" fill="#A6321E"/>
+          <rect x="17" y="17" width="6" height="15" rx="1.4" fill="#FBF6E9" stroke="#BE8F2E" stroke-width="1"/>
+          <path d="M11 33h18l-1.6 3.4a2 2 0 0 1-1.8 1.1H14.4a2 2 0 0 1-1.8-1.1L11 33z" fill="#BE8F2E"/>
+        </svg>
+        <div>
+          <b>Лампада</b>
+          <small>Сретенская духовная академия</small>
+        </div>
+      </div>
+      <div class="stat streak" id="streakStat" title="Дни подряд">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 3 4.5 4.8 4.5 8.5 0 1.9-1.1 3.3-2.6 3.9.5-1 .3-2.4-.7-3.4.2 1.6-.9 2.6-1.9 3.4-1 .8-2.3 1.9-2.3 3.9C9 22.9 10.6 24 12.5 24 16.6 24 20 20.8 20 16.4 20 10 13.5 7.5 12 2z"/></svg>
+        <span id="streakN">0</span>
+      </div>
+      <div class="stat xp" title="Очки">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6 6.6.6-5 4.3 1.5 6.5L12 16.9 5.9 20 7.4 13 2.4 8.6 9 8z"/></svg>
+        <span id="xpN">0</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="view"></div>
+
+  <div class="nav">
+    <div class="nav-inner" id="nav">
+      <button data-tab="home" class="on">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Путь</button>
+      <button data-tab="review">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v5h-5"/></svg>Повтор</button>
+      <button data-tab="plan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>План</button>
+      <button data-tab="ref">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M18 7h2v13H7"/></svg>Справка</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==================== ДАННЫЕ КУРСА ==================== */
+const SECTIONS = [
+  {id:'pray', n:'I',   title:'Молитвы наизусть'},
+  {id:'cat',  n:'II',  title:'Символ веры и катехизис'},
+  {id:'ot',   n:'III', title:'Ветхий Завет'},
+  {id:'nt',   n:'IV',  title:'Новый Завет'},
+  {id:'serv', n:'V',   title:'Богослужение'},
+  {id:'hist', n:'VI',  title:'История Церкви'},
+  {id:'feast',n:'VII', title:'Праздники и собеседование'},
+];
+
+const UNITS = [
+/* ============ I. МОЛИТВЫ ============ */
+{id:'p1',section:'pray',icon:'🕯️',title:'Начальные молитвы',sub:'Царю Небесный · Трисвятое · Троице',cards:[
+ {type:'info',tag:'Зачем это',title:'Молитвы спрашивают почти всегда',html:'<p>На собеседовании просят прочитать молитвы <b>наизусть</b> и по-церковнославянски. Это первое, что проверяют. Начнём с начальных молитв — их читают перед любым правилом.</p>'},
+ {type:'recite',title:'Слава Тебе, Боже наш',note:'Предначинательное славословие',text:'Сла́ва Тебе́, Бо́же наш, сла́ва Тебе́.'},
+ {type:'recite',title:'Царю Небесный',note:'Молитва Святому Духу',text:'Царю́ Небе́сный, Уте́шителю, Ду́ше и́стины, И́же везде́ сый и вся исполня́яй, Сокро́вище благи́х и жи́зни Пода́телю, прииди́ и всели́ся в ны, и очи́сти ны от вся́кия скве́рны, и спаси́, Бла́же, ду́ши на́ша.'},
+ {type:'fill',tag:'Вставь слово',text:'Царю́ Небе́сный, |Утешителю|, Ду́ше |истины|, И́же везде́ сый и вся |исполняяй|, Сокро́вище благи́х и жи́зни Пода́телю.',hint:'«Царю Небесный»'},
+ {type:'mc',q:'Кому обращена молитва «Царю Небесный»?',options:['Богу Отцу','Святому Духу','Иисусу Христу','Богородице'],answer:1,explain:'Это молитва Святому Духу: «Царю Небесный, Утешителю, Душе истины…». Её не читают от Пасхи до Троицы.'},
+ {type:'recite',title:'Трисвятое',note:'Читается трижды',text:'Святы́й Бо́же, Святы́й Кре́пкий, Святы́й Безсме́ртный, поми́луй нас. (трижды)'},
+ {type:'recite',title:'Пресвятая Троице',note:'',text:'Пресвята́я Тро́ице, поми́луй нас; Го́споди, очи́сти грехи́ на́ша; Влады́ко, прости́ беззако́ния на́ша; Святы́й, посети́ и исцели́ не́мощи на́ша, и́мене Твоего́ ра́ди.'},
+ {type:'mc',q:'Сколько раз читается «Святый Боже, Святый Крепкий, Святый Безсмертный»?',options:['Один раз','Дважды','Трижды','Семь раз'],answer:2,explain:'Трисвятое читается трижды — отсюда и название.'},
+]},
+{id:'p2',section:'pray',icon:'✍️',title:'Отче наш и Символ веры',sub:'Две главные молитвы',cards:[
+ {type:'recite',title:'Отче наш',note:'Молитва Господня — дал Сам Христос',text:'О́тче наш, И́же еси́ на небесе́х! Да святи́тся и́мя Твое́, да прии́дет Ца́рствие Твое́, да бу́дет во́ля Твоя́, я́ко на небеси́ и на земли́. Хлеб наш насу́щный да́ждь нам днесь; и оста́ви нам до́лги на́ша, я́коже и мы оставля́ем должнико́м на́шим; и не введи́ нас во искуше́ние, но изба́ви нас от лука́ваго.'},
+ {type:'fill',tag:'Вставь слово',text:'О́тче наш, И́же еси́ на |небесех|! Да |святится| и́мя Твое́, да прии́дет |Царствие| Твое́, да бу́дет во́ля Твоя́, я́ко на небеси́ и на |земли|.',hint:'«Отче наш»'},
+ {type:'mc',q:'Кто дал молитву «Отче наш»?',options:['Апостол Пётр','Пророк Моисей','Сам Иисус Христос','Царь Давид'],answer:2,explain:'Господь дал её ученикам в ответ на просьбу научить молиться (Мф. 6). Поэтому её называют Молитвой Господней.'},
+ {type:'recite',title:'Символ веры',note:'Никео-Цареградский, 12 членов',text:'Ве́рую во еди́наго Бо́га Отца́, Вседержи́теля, Творца́ не́бу и земли́, ви́димым же всем и неви́димым. И во еди́наго Го́спода Иису́са Христа́, Сы́на Бо́жия, Единоро́днаго, И́же от Отца́ рожде́ннаго пре́жде всех век; Све́та от Све́та, Бо́га и́стинна от Бо́га и́стинна, рожде́нна, несотворе́нна, единосу́щна Отцу́, И́мже вся бы́ша. Нас ра́ди челове́к и на́шего ра́ди спасе́ния сше́дшаго с небе́с и воплоти́вшагося от Ду́ха Свя́та и Мари́и Де́вы, и вочелове́чшася. Распя́таго же за ны при Понти́йстем Пила́те, и страда́вша, и погребе́нна. И воскре́сшаго в тре́тий день по Писа́нием. И возше́дшаго на небеса́, и седя́ща одесну́ю Отца́. И па́ки гряду́щаго со сла́вою суди́ти живы́м и ме́ртвым, Его́же Ца́рствию не бу́дет конца́. И в Ду́ха Свята́го, Го́спода, Животворя́щаго, И́же от Отца́ исходя́щаго, И́же со Отце́м и Сы́ном спокланя́ема и ссла́вима, глаго́лавшаго проро́ки. Во еди́ну Святу́ю, Собо́рную и Апо́стольскую Це́рковь. Испове́дую еди́но креще́ние во оставле́ние грехо́в. Ча́ю воскресе́ния ме́ртвых, и жи́зни бу́дущаго ве́ка. Ами́нь.'},
+ {type:'fill',tag:'Вставь слово',text:'Ве́рую во еди́наго Бо́га Отца́, |Вседержителя|, Творца́ не́бу и земли́, ви́димым же всем и |невидимым|.',hint:'1-й член Символа веры'},
+ {type:'mc',q:'Где и когда был составлен Символ веры?',options:['В Риме, 1054 г.','На I и II Вселенских соборах (325 и 381 гг.)','На Синае при Моисее','В 988 г. при Крещении Руси'],answer:1,explain:'Первая часть — на I Соборе в Никее (325), дополнена на II в Константинополе (381). Отсюда — Никео-Цареградский.'},
+]},
+{id:'p3',section:'pray',icon:'🌿',title:'Богородичны и псалмы',sub:'Богородице Дево · Достойно есть · Пс 50, 90',cards:[
+ {type:'recite',title:'Богородице Дево, радуйся',note:'Ангельское приветствие',text:'Богоро́дице Де́во, ра́дуйся, Благода́тная Мари́е, Госпо́дь с Тобо́ю; благослове́на Ты в жена́х и благослове́н Плод чре́ва Твоего́, я́ко Спа́са родила́ еси́ душ на́ших.'},
+ {type:'fill',tag:'Вставь слово',text:'Богоро́дице Де́во, |радуйся|, Благода́тная Мари́е, Госпо́дь с Тобо́ю; |благословена| Ты в жена́х.',hint:'«Богородице Дево»'},
+ {type:'recite',title:'Достойно есть',note:'Величание Богородицы',text:'Досто́йно есть я́ко вои́стину блажи́ти Тя, Богоро́дицу, Присноблаже́нную и Пренепоро́чную и Ма́терь Бо́га на́шего. Честне́йшую Херуви́м и сла́внейшую без сравне́ния Серафи́м, без истле́ния Бо́га Сло́ва ро́ждшую, су́щую Богоро́дицу Тя велича́ем.'},
+ {type:'mc',q:'Псалом 50 — какой это псалом по содержанию?',options:['Благодарственный','Покаянный','Хвалебный','Пророческий'],answer:1,explain:'Пс. 50 «Помилуй мя, Боже» — покаянный псалом царя Давида, написанный после обличения пророком Нафаном.'},
+ {type:'recite',title:'Псалом 50 (начало)',note:'«Помилуй мя, Боже»',text:'Поми́луй мя, Бо́же, по вели́цей ми́лости Твое́й, и по мно́жеству щедро́т Твои́х очи́сти беззако́ние мое́. Наипа́че омы́й мя от беззако́ния моего́, и от греха́ моего́ очи́сти мя.'},
+ {type:'mc',q:'Псалом 90 начинается словами…',options:['«Живый в помощи Вышняго»','«Господь пасет мя»','«Блажен муж»','«Хвали, душе моя, Господа»'],answer:0,explain:'Пс. 90 «Живы́й в по́мощи Вы́шняго» — о защите Божией уповающему на Него.'},
+ {type:'tf',q:'Псалом 50 написан после греха Давида с Вирсавией.',answer:true,explain:'Верно. Пророк Нафан обличил Давида — и родился этот покаянный псалом.'},
+]},
+{id:'p4',section:'pray',icon:'🙏',title:'Ефрем Сирин и Причащение',sub:'Требуется программой СДА',cards:[
+ {type:'info',tag:'Важно для СДА',title:'Эти молитвы прямо в программе',html:'<p>В программе Сретенской академии отдельно указаны: молитва <b>Ефрема Сирина</b>, молитва <b>перед Причащением</b>, а также утренние и вечерние молитвы. Разберём главные.</p>'},
+ {type:'recite',title:'Молитва Ефрема Сирина',note:'Великопостная, с земными поклонами',text:'Го́споди и Влады́ко живота́ моего́, дух пра́здности, уны́ния, любонача́лия и праздносло́вия не да́ждь ми. Дух же целому́дрия, смиренному́дрия, терпе́ния и любве́ да́руй ми, рабу́ Твоему́. Ей, Го́споди Царю́, да́руй ми зре́ти моя́ прегреше́ния и не осужда́ти бра́та моего́, я́ко благослове́н еси́ во ве́ки веко́в. Ами́нь.'},
+ {type:'mc',q:'Когда особенно читается молитва Ефрема Сирина?',options:['На Пасху','В Рождество','Великим постом','На Троицу'],answer:2,explain:'Это великопостная молитва с земными поклонами — читается на службах Великого поста.'},
+ {type:'fill',tag:'Вставь слово',text:'Го́споди и Влады́ко живота́ моего́, дух |праздности|, уны́ния, любонача́лия и |празднословия| не да́ждь ми.',hint:'Молитва Ефрема Сирина'},
+ {type:'recite',title:'Перед Святым Причащением',note:'Свт. Иоанна Златоуста (начало)',text:'Ве́рую, Го́споди, и испове́дую, я́ко Ты еси́ вои́стину Христо́с, Сын Бо́га жива́го, прише́дый в мир гре́шныя спасти́, от ни́хже пе́рвый есмь аз.'},
+ {type:'mc',q:'Чем заканчивается исповедание веры перед Причащением?',options:['«…аминь, аминь»','«…от нихже первый есмь аз»','«…во веки веков»','«…Господь с Тобою»'],answer:1,explain:'«…пришедый в мир грешныя спасти, от нихже первый есмь аз» — человек называет себя первым из грешников.'},
+]},
+];
+
+/* ============ II. СИМВОЛ ВЕРЫ И КАТЕХИЗИС ============ */
+UNITS.push(...[
+{id:'c1',section:'cat',icon:'📜',title:'12 членов Символа веры',sub:'О чём каждый член',cards:[
+ {type:'info',tag:'Карта',title:'Символ веры в 12 членах',html:'<p><b>1.</b> Бог Отец, Творец. <b>2.</b> Сын Божий, единосущный Отцу. <b>3.</b> Воплощение от Духа и Девы. <b>4.</b> Страдание и смерть при Пилате. <b>5.</b> Воскресение в 3-й день. <b>6.</b> Вознесение. <b>7.</b> Второе пришествие и суд. <b>8.</b> Дух Святой. <b>9.</b> Церковь. <b>10.</b> Крещение. <b>11.</b> Воскресение мёртвых. <b>12.</b> Жизнь будущего века.</p>'},
+ {type:'mc',q:'О чём говорит 8-й член Символа веры?',options:['О Церкви','О Духе Святом','О крещении','О Втором пришествии'],answer:1,explain:'8-й член — о Духе Святом, «Господе Животворящем, Иже от Отца исходящем».'},
+ {type:'mc',q:'В каком члене — о Церкви?',options:['В 7-м','В 8-м','В 9-м','В 10-м'],answer:2,explain:'9-й член: «Во едину Святую, Соборную и Апостольскую Церковь».'},
+ {type:'order',prompt:'Расставь первые события Символа веры по порядку',items:['Воплощение от Духа и Девы','Распятие при Пилате','Воскресение в третий день','Вознесение и сидение одесную Отца']},
+ {type:'mc',q:'Слова «Егоже Царствию не будет конца» относятся к…',options:['крещению','Второму пришествию Христа','Церкви','Богородице'],answer:1,explain:'7-й член — о вечном Царстве Христа после Второго пришествия.'},
+ {type:'tf',q:'Дух Святой, по Символу веры, исходит от Отца.',answer:true,explain:'«Иже от Отца исходящаго» — православное учение об исхождении Духа только от Отца.'},
+]},
+{id:'c2',section:'cat',icon:'💡',title:'Вера, Откровение, Писание',sub:'Как мы знаем о Боге',cards:[
+ {type:'mc',q:'Как апостол Павел определяет веру?',options:['Знание законов природы','«Осуществление ожидаемого и уверенность в невидимом»','Соблюдение обрядов','Чувство страха'],answer:1,explain:'Евр. 11:1: «Вера же есть осуществление ожидаемого и уверенность в невидимом».'},
+ {type:'info',tag:'Разбор',title:'Два пути Откровения',html:'<p>Бог открывает Себя через <b>Божественное Откровение</b>. Оно хранится в Церкви двумя путями:</p><p><b>Священное Предание</b> — живой опыт Церкви от апостолов. <b>Священное Писание</b> (Библия) — часть Предания, записанная по внушению Святого Духа.</p>'},
+ {type:'mc',q:'Естественное Откровение — это…',options:['Библия','Познание Бога через сотворённый мир и совесть','Церковные соборы','Иконы'],answer:1,explain:'Естественное — через творение и совесть; сверхъестественное — прямое Откровение (Писание и Предание). Наука изучает творение и не противоречит вере.'},
+ {type:'tf',q:'Многие великие учёные были верующими людьми.',answer:true,explain:'Верно — Ньютон, Паскаль, Ломоносов, Мендель и др. Вера и подлинная наука не противоречат друг другу.'},
+ {type:'mc',q:'Сколько книг в Новом Завете?',options:['12','27','39','50'],answer:1,explain:'27 книг: 4 Евангелия, Деяния, 21 послание, Апокалипсис.'},
+ {type:'mc',q:'Как называется перевод Ветхого Завета на греческий язык?',options:['Вульгата','Септуагинта (перевод 70-ти)','Пешитта','Синодальный'],answer:1,explain:'Септуагинта — перевод «семидесяти толковников», сделанный до Рождества Христова.'},
+]},
+{id:'c3',section:'cat',icon:'☘️',title:'Троица, Христос, грех',sub:'Основные догматы',cards:[
+ {type:'info',tag:'Догмат',title:'Пресвятая Троица',html:'<p>Бог <b>един по существу, но троичен в Лицах</b>: Отец, Сын и Святой Дух — Троица единосущная и нераздельная.</p><p>Отец не рождён; Сын предвечно <b>рождается</b> от Отца; Дух Святой предвечно <b>исходит</b> от Отца. Все три Лица равны.</p>'},
+ {type:'mc',q:'Кто такой Иисус Христос?',options:['Только Бог','Только человек','Истинный Бог и истинный Человек','Ангел'],answer:2,explain:'Богочеловек: две природы — Божественная и человеческая — соединены неслитно, неизменно, нераздельно, неразлучно (IV Собор, Халкидон, 451 г.).'},
+ {type:'mc',q:'На каком Соборе принято учение о двух природах Христа?',options:['Никейском (325)','Константинопольском (381)','Халкидонском (451)','VII Никейском (787)'],answer:2,explain:'IV Вселенский собор в Халкидоне (451 г.) — против ереси монофизитов.'},
+ {type:'mc',q:'Что такое первородный грех?',options:['Грех, который совершает каждый лично','Грех Адама и Евы, повредивший природу человека','Убийство Авеля','Отречение Петра'],answer:1,explain:'Грех прародителей в раю; через него в мир вошли повреждение природы, страдания и смерть, перешедшие на потомков.'},
+ {type:'tf',q:'Христос Своими смертью и воскресением освободил человека от власти греха и смерти.',answer:true,explain:'В этом суть искупления.'},
+]},
+{id:'c4',section:'cat',icon:'⛪',title:'Церковь и 7 Таинств',sub:'Что и зачем',cards:[
+ {type:'mc',q:'Кто Глава Церкви?',options:['Патриарх','Собор епископов','Сам Господь Иисус Христос','Апостол Пётр'],answer:2,explain:'Глава Церкви — Христос. Церковь — единая, святая, соборная и апостольская.'},
+ {type:'match',prompt:'Соедини таинство и его смысл',pairs:[['Крещение','Духовное рождение, вступление в Церковь'],['Миропомазание','Дары Святого Духа для укрепления'],['Причащение','Соединение со Христом'],['Священство','Поставление на служение Церкви']]},
+ {type:'match',prompt:'Соедини таинство и его смысл',pairs:[['Покаяние','Прощение исповеданных грехов'],['Брак','Благословение супружеского союза'],['Елеосвящение','Исцеление души и тела']]},
+ {type:'mc',q:'Сколько Таинств в Православной Церкви?',options:['Три','Пять','Семь','Двенадцать'],answer:2,explain:'Семь: Крещение, Миропомазание, Покаяние, Причащение, Брак, Священство, Елеосвящение.'},
+ {type:'tf',q:'Соборование (Елеосвящение) — это таинство исцеления и прощения забытых грехов.',answer:true,explain:'Совершается над больным, с помазанием освящённым елеем (Иак. 5:14).'},
+]},
+{id:'c5',section:'cat',icon:'🗿',title:'Заповеди и Блаженства',sub:'10 заповедей · 9 блаженств',cards:[
+ {type:'info',tag:'Запомни',title:'10 заповедей (Синай)',html:'<p><b>1.</b> Один Бог. <b>2.</b> Не сотвори кумира. <b>3.</b> Не поминай имя всуе. <b>4.</b> Помни день субботний. <b>5.</b> Чти отца и мать. <b>6.</b> Не убий. <b>7.</b> Не прелюбодействуй. <b>8.</b> Не укради. <b>9.</b> Не лжесвидетельствуй. <b>10.</b> Не пожелай чужого.</p>'},
+ {type:'mc',q:'Какая заповедь — пятая?',options:['Не убий','Чти отца твоего и матерь твою','Не укради','Не сотвори кумира'],answer:1,explain:'5-я: «Чти отца твоего и матерь твою» — первая заповедь с обещанием долголетия.'},
+ {type:'order',prompt:'Первые четыре заповеди по порядку',items:['Аз есмь Господь Бог твой…','Не сотвори себе кумира','Не приемли имене Господа Бога всуе','Помни день субботний']},
+ {type:'mc',q:'«Блаженны нищие духом» — что им обещано?',options:['Наследуют землю','Их есть Царство Небесное','Утешатся','Помилованы будут'],answer:1,explain:'«…яко тех есть Царствие Небесное». Нищета духа — смирение, видение своей нужды в Боге.'},
+ {type:'fill',tag:'Вставь слово',text:'Блаже́нны |чистые| се́рдцем, я́ко ти́и |Бога| у́зрят. Блаже́нны |миротворцы|, я́ко ти́и сы́нове Бо́жии нареку́тся.',hint:'Заповеди блаженств (Мф. 5)'},
+ {type:'mc',q:'Сколько заповедей блаженств?',options:['Семь','Восемь','Девять','Десять'],answer:2,explain:'Девять заповедей блаженств из Нагорной проповеди (Мф. 5:3–12).'},
+]},
+{id:'c6',section:'cat',icon:'❤️',title:'Молитва, любовь, зло',sub:'Главная заповедь и трудные вопросы',cards:[
+ {type:'mc',q:'В чём главная заповедь христианства?',options:['Поститься и молиться','Возлюбить Бога и ближнего','Соблюдать обряды','Хранить пост'],answer:1,explain:'«Возлюби Господа Бога твоего всем сердцем… и ближнего твоего, как самого себя» (Мф. 22:37–39). На этих двух — весь закон и пророки.'},
+ {type:'mc',q:'Что такое молитва?',options:['Чтение книг','Возношение ума и сердца к Богу, беседа с Богом','Пение в храме','Земной поклон'],answer:1,explain:'Молитва — беседа человека с Богом.'},
+ {type:'match',prompt:'Виды молитвы',pairs:[['Славословная','Прославление Бога'],['Благодарственная','Благодарение за блага'],['Покаянная','Просьба о прощении'],['Просительная','Прошение о нуждах']]},
+ {type:'info',tag:'Трудный вопрос',title:'Откуда в мире зло?',html:'<p>Бог не творил зла. Зло — не сущность, а <b>уклонение свободной воли</b> от добра. Оно вошло через свободный выбор ангелов, а затем людей. Бог попускает зло, но обращает его к добру и спасению.</p>'},
+ {type:'mc',q:'Хула на Духа Святого — это…',options:['Ошибка в молитве','Сознательное и упорное противление явной истине Божией','Пропуск службы','Незнание Символа веры'],answer:1,explain:'Единственный грех, о котором сказано, что он «не простится» — упорное, до конца, отвержение действия Божией благодати (Мф. 12:31).'},
+]},
+]);
+
+/* ============ III. ВЕТХИЙ ЗАВЕТ ============ */
+UNITS.push(...[
+{id:'o1',section:'ot',icon:'🌍',title:'Творение и первые люди',sub:'Ангелы · дни творения · грехопадение',cards:[
+ {type:'info',tag:'Разбор',title:'Сотворение мира',html:'<p>Сначала Бог сотворил <b>невидимый мир — ангелов</b>. Часть их отпала во главе с денницей — так появились <b>злые духи</b> (бесы). Затем — видимый мир за <b>шесть дней</b>. Еврейское слово <em>«бара»</em> означает творение из ничего.</p>'},
+ {type:'mc',q:'Что Бог сотворил прежде видимого мира?',options:['Человека','Ангелов (невидимый мир)','Растения','Солнце'],answer:1,explain:'Сначала — невидимый мир, ангелы. Отпавшие ангелы стали злыми духами.'},
+ {type:'mc',q:'В какой день был сотворён человек?',options:['В первый','В третий','В шестой','В седьмой'],answer:2,explain:'В шестой день — Адам по образу и подобию Божию, затем Ева из его ребра. Седьмой день Бог благословил.'},
+ {type:'info',tag:'Тонкость',title:'Образ и подобие',html:'<p><b>Образ</b> Божий дан человеку изначально (разум, свобода, бессмертие души). <b>Подобие</b> — это задача: уподобиться Богу в добродетели через свою жизнь.</p>'},
+ {type:'mc',q:'Что стало первым пророчеством о Спасителе?',options:['Радуга Ноя','«Семя жены сотрёт главу змея» (Быт. 3:15)','Жертва Авеля','Лествица Иакова'],answer:1,explain:'Первоевангелие (Быт. 3:15) — обетование о Спасителе сразу после грехопадения.'},
+ {type:'mc',q:'Кто такие Каин и Авель?',options:['Сыновья Ноя','Сыновья Адама','Братья Авраама','Ученики Моисея'],answer:1,explain:'Сыновья Адама. Каин из зависти убил Авеля — первое убийство на земле.'},
+ {type:'tf',q:'История многострадального Иова — о человеке, сохранившем веру среди тяжких страданий.',answer:true,explain:'Иов потерял всё, но не похулил Бога; за терпение был вознаграждён. Образ праведного страдальца.'},
+]},
+{id:'o2',section:'ot',icon:'⛺',title:'Ной и патриархи',sub:'Потоп · Авраам · Иосиф',cards:[
+ {type:'mc',q:'Что стало знамением завета Бога с Ноем после потопа?',options:['Обрезание','Радуга','Скрижали','Ковчег'],answer:1,explain:'Радуга — знак обещания больше не губить землю потопом.'},
+ {type:'mc',q:'Что случилось при строительстве Вавилонской башни?',options:['Башня рухнула','Бог смешал языки, люди рассеялись','Начался потоп','Явился ангел'],answer:1,explain:'За гордость Бог смешал языки — отсюда разные народы и языки; появилось идолопоклонство.'},
+ {type:'mc',q:'Откуда вышел Авраам по призыву Божию?',options:['Из Египта','Из Ура Халдейского','Из Вавилона','Из Иерусалима'],answer:1,explain:'Из Ура Халдейского в землю Ханаанскую. Бог обещал: в его семени благословятся все народы.'},
+ {type:'info',tag:'Прообразы',title:'Мелхиседек и жертва Исаака',html:'<p><b>Мелхиседек</b>, царь Салима и священник Бога Вышнего, вынес Аврааму хлеб и вино — прообраз Христа-Первосвященника. Готовность Авраама принести <b>Исаака</b> в жертву — прообраз Крестной жертвы Отца.</p>'},
+ {type:'mc',q:'Кто получил имя Израиль после борьбы с Ангелом?',options:['Авраам','Исаак','Иаков','Иосиф'],answer:2,explain:'Иаков; у него 12 сыновей — родоначальники 12 колен Израилевых. Его видение — лествица от земли до неба (прообраз Богородицы).'},
+ {type:'mc',q:'Кем стал Иосиф, проданный братьями в Египет?',options:['Рабом до конца дней','Правителем Египта, спасшим семью от голода','Воином','Священником'],answer:1,explain:'За целомудрие и мудрость возвысился; простил братьев. Прообраз Христа — преданный своими и ставший спасителем.'},
+]},
+{id:'o3',section:'ot',icon:'🔥',title:'Моисей и Исход',sub:'Купина · казни · Синай · медный змий',cards:[
+ {type:'mc',q:'Из чего Бог призвал Моисея?',options:['Из облака','Из горящей, но несгорающей купины','Из моря','Из храма'],answer:1,explain:'Неопалимая Купина — прообраз Богородицы (огонь Божества не опалил Деву).'},
+ {type:'mc',q:'Сколько казней постигло Египет перед Исходом?',options:['Семь','Десять','Двенадцать','Три'],answer:1,explain:'Десять казней египетских; после них фараон отпустил народ.'},
+ {type:'mc',q:'Что установлено в память избавления из Египта?',options:['Пасха (агнец пасхальный)','Суббота','Обрезание','Пятидесятница'],answer:0,explain:'Ветхозаветная Пасха; пасхальный агнец — прообраз Христа. Переход через Чермное (Красное) море посуху.'},
+ {type:'mc',q:'Что Бог дал Моисею на горе Синай?',options:['Радугу','Десять заповедей на двух скрижалях','Манну','Медного змия'],answer:1,explain:'Синайское законодательство: 10 заповедей и весь закон; устроена скиния, первосвященник — Аарон.'},
+ {type:'info',tag:'Прообраз',title:'Медный змий',html:'<p>В пустыне народ жалили змеи. Моисей по повелению Божию воздвиг <b>медного змия</b> на шесте: взглянувший на него исцелялся. Это <b>прообраз Распятия</b> — взирающий с верой на Христа на Кресте спасается (Ин. 3:14).</p>'},
+ {type:'mc',q:'Кто ввёл народ в землю обетованную после Моисея?',options:['Аарон','Иисус Навин','Гедеон','Самуил'],answer:1,explain:'Иисус Навин; пал Иерихон. Затем — период судей (Гедеон, Самсон, Самуил).'},
+]},
+{id:'o4',section:'ot',icon:'👑',title:'Цари и пророки',sub:'Саул · Давид · Соломон · пророки · плен',cards:[
+ {type:'match',prompt:'Соедини царя и главное',pairs:[['Саул','Первый царь, отвергнут за непослушание'],['Давид','Победил Голиафа, автор Псалтири'],['Соломон','Мудрейший, построил первый храм']]},
+ {type:'mc',q:'Из чьего рода — Христос («Сын Давидов»)?',options:['Саула','Давида','Соломона','Авраама'],answer:1,explain:'Из рода Давида. После Соломона царство разделилось: Израильское (север) и Иудейское (юг).'},
+ {type:'match',prompt:'Пророк и его знак',pairs:[['Илия','Взят на небо на огненной колеснице'],['Иона','Три дня во чреве кита'],['Исаия','«Дева во чреве приимет» (Ис. 7:14)'],['Даниил','Предсказал время прихода Мессии']]},
+ {type:'mc',q:'Три дня Ионы во чреве кита — прообраз чего?',options:['Крещения','Тридневного Воскресения Христа','Вознесения','Пятидесятницы'],answer:1,explain:'Сам Христос указал: как Иона был три дня во чреве кита, так и Сын Человеческий (Мф. 12:40).'},
+ {type:'mc',q:'Кто разрушил Иерусалим и увёл народ в плен в 586 г. до Р.Х.?',options:['Кир','Навуходоносор','Александр Македонский','Фараон'],answer:1,explain:'Вавилонский царь Навуходоносор; храм сожжён, плен длился 70 лет. По указу Кира народ вернулся и построил второй храм.'},
+ {type:'mc',q:'Кто последний ветхозаветный пророк?',options:['Илия','Исаия','Малахия','Даниил'],answer:2,explain:'Малахия; после него народ ожидал пришествия Мессии.'},
+]},
+]);
+
+/* ============ IV. НОВЫЙ ЗАВЕТ ============ */
+UNITS.push(...[
+{id:'n1',section:'nt',icon:'🌟',title:'Рождество и Сретение',sub:'Богородица · Благовещение · Вифлеем',cards:[
+ {type:'mc',q:'Кто родители Пресвятой Богородицы?',options:['Захария и Елисавета','Иоаким и Анна','Иосиф и Мария','Давид и Вирсавия'],answer:1,explain:'Праведные Иоаким и Анна родили Марию в старости по молитве. В 3 года Она введена в храм.'},
+ {type:'mc',q:'Кто возвестил Деве Марии о рождении Сына Божия?',options:['Архангел Михаил','Архангел Гавриил','Пророк Илия','Ангел-хранитель'],answer:1,explain:'Благовещение: Архангел Гавриил в Назарете. Мария: «Се, Раба Господня». Празднуется 7 апреля.'},
+ {type:'mc',q:'Какие дары принесли волхвы Младенцу?',options:['Хлеб, вино, масло','Золото, ладан, смирну','Овец и голубей','Мирру и елей'],answer:1,explain:'Золото (как Царю), ладан (как Богу), смирну (как Человеку, имеющему умереть).'},
+ {type:'match',prompt:'Соедини праздник и дату',pairs:[['Рождество Христово','7 января'],['Благовещение','7 апреля'],['Сретение Господне','15 февраля'],['Крещение (Богоявление)','19 января']]},
+ {type:'mc',q:'Кто встретил Младенца Христа в храме на 40-й день?',options:['Пророк Захария','Старец Симеон Богоприимец','Апостол Пётр','Царь Ирод'],answer:1,explain:'Сретение Господне: Симеон, которому было обещано не умереть, пока не увидит Христа. «Ныне отпущаеши…». 15 февраля.'},
+ {type:'tf',q:'Царь Ирод, ища убить Младенца, избил вифлеемских младенцев.',answer:true,explain:'Святое семейство бежало в Египет. Память 14 000 младенцев вифлеемских.'},
+]},
+{id:'n2',section:'nt',icon:'🕊️',title:'Крещение и служение',sub:'Иордан · искушение · апостолы',cards:[
+ {type:'mc',q:'Что явилось при Крещении Христа на Иордане?',options:['Только голос с неба','Пресвятая Троица','Ангелы','Столп огненный'],answer:1,explain:'Богоявление: Отец свидетельствовал гласом, Сын крестился, Дух сошёл в виде голубя. 19 января.'},
+ {type:'mc',q:'Сколько дней Христос постился в пустыне?',options:['3','7','40','50'],answer:2,explain:'40 дней; был искушаем диаволом и победил словом Божиим. Отсюда — 40 дней Великого поста.'},
+ {type:'mc',q:'Сколько апостолов избрал Христос?',options:['7','12','40','70'],answer:1,explain:'12 апостолов. Иуда Искариот предал; вместо него избран Матфий.'},
+ {type:'info',tag:'Нагорная проповедь',title:'Сердце учения Христа',html:'<p>В Нагорной проповеди — <b>заповеди блаженств</b>, учение о Промысле Божием, о непрощении и любви к ближним, «золотое правило»: как хотите, чтобы поступали с вами, так и вы поступайте.</p>'},
+ {type:'mc',q:'Кто крестил Христа?',options:['Апостол Пётр','Иоанн Предтеча','Пророк Илия','Захария'],answer:1,explain:'Иоанн Креститель (Предтеча) на Иордане.'},
+]},
+{id:'n3',section:'nt',icon:'📖',title:'Притчи и чудеса',sub:'Чему учат образы',cards:[
+ {type:'match',prompt:'Притча — о чём она',pairs:[['О сеятеле','Как разные сердца принимают слово Божие'],['О блудном сыне','О покаянии и милосердии Отца'],['О милосердном самарянине','Кто мой ближний'],['О мытаре и фарисее','Смирение против гордости']]},
+ {type:'mc',q:'Какое первое чудо совершил Христос?',options:['Исцеление слепого','Претворение воды в вино в Кане','Насыщение 5000','Хождение по водам'],answer:1,explain:'Претворение воды в вино на браке в Кане Галилейской.'},
+ {type:'mc',q:'Сколькими хлебами Христос насытил пять тысяч?',options:['Двумя','Пятью','Семью','Двенадцатью'],answer:1,explain:'Пятью хлебами и двумя рыбами.'},
+ {type:'mc',q:'Кого Христос воскресил на четвёртый день после смерти?',options:['Дочь Иаира','Сына наинской вдовы','Лазаря','Иоанна'],answer:2,explain:'Четверодневного Лазаря — незадолго до входа в Иерусалим (Лазарева суббота).'},
+ {type:'info',tag:'Гора Фавор',title:'Преображение',html:'<p>На горе Фавор Христос преобразился перед Петром, Иаковом и Иоанном: лицо просияло как солнце. Явились Моисей и Илия; глас Отца: «Сего послушайте». Празднуется <b>19 августа</b>.</p>'},
+]},
+{id:'n4',section:'nt',icon:'✝️',title:'Страсти и Воскресение',sub:'Тайная вечеря → Пятидесятница',cards:[
+ {type:'mc',q:'Что установил Христос на Тайной Вечере?',options:['Крещение','Таинство Евхаристии (Причащения)','Соборование','Брак'],answer:1,explain:'«Приимите, ядите: сие есть Тело Мое… пийте… сия есть Кровь Моя». Умыл ученикам ноги — урок смирения.'},
+ {type:'mc',q:'За сколько сребреников Иуда предал Христа?',options:['10','20','30','40'],answer:2,explain:'За 30 сребреников в Гефсиманском саду.'},
+ {type:'order',prompt:'Расставь события по порядку',items:['Тайная Вечеря','Гефсиманское взятие','Распятие на Голгофе','Воскресение в третий день']},
+ {type:'mc',q:'Кто первым узнал о Воскресении Христовом?',options:['Апостолы','Жёны-мироносицы','Пилат','Фома'],answer:1,explain:'Жёны-мироносицы пришли ко гробу помазать тело; ангел возвестил: «Его нет здесь — Он воскрес».'},
+ {type:'mc',q:'На какой день после Пасхи было Вознесение Господне?',options:['На 3-й','На 8-й','На 40-й','На 50-й'],answer:2,explain:'На 40-й день Христос вознёсся с горы Елеонской.'},
+ {type:'mc',q:'Что произошло в день Пятидесятницы?',options:['Вознесение','Сошествие Святого Духа на апостолов','Преображение','Крещение'],answer:1,explain:'На 50-й день Дух Святой сошёл в виде огненных языков — день рождения Церкви (День Святой Троицы).'},
+]},
+]);
+
+/* ============ V. БОГОСЛУЖЕНИЕ ============ */
+UNITS.push(...[
+{id:'s1',section:'serv',icon:'🏛️',title:'Устройство храма',sub:'Части · предметы алтаря',cards:[
+ {type:'info',tag:'Карта храма',title:'Три части храма',html:'<p><b>Притвор</b> (вход) → <b>средняя часть</b> (для молящихся) → <b>алтарь</b> (святая святых). Алтарь отделён <b>иконостасом</b> с Царскими вратами (в центре) и диаконскими (боковыми).</p>'},
+ {type:'mc',q:'Где совершается Евхаристия?',options:['На жертвеннике','На престоле','На амвоне','В притворе'],answer:1,explain:'На престоле в алтаре. На жертвеннике приготовляются Дары. Возвышение перед иконостасом — солея, её центр — амвон.'},
+ {type:'match',prompt:'Соедини предмет и назначение',pairs:[['Дискос','Блюдо для Агнца (хлеба)'],['Потир (чаша)','Для вина — Крови Христовой'],['Копие','Нож для изъятия частиц'],['Лжица','Ложечка для причащения мирян']]},
+ {type:'mc',q:'Что такое антиминс?',options:['Икона над вратами','Плат с частицей мощей на престоле','Облачение священника','Богослужебная книга'],answer:1,explain:'Освящённый плат с изображением положения во гроб и частицей мощей; без него нельзя служить литургию.'},
+ {type:'mc',q:'Как называются центральные врата иконостаса?',options:['Диаконские','Царские','Западные','Северные'],answer:1,explain:'Царские врата — центральные; через них в определённые моменты выносят Евангелие и Дары.'},
+]},
+{id:'s2',section:'serv',icon:'👨‍⚖️',title:'Священство и облачения',sub:'Три степени · одежды',cards:[
+ {type:'info',tag:'Иерархия',title:'Три степени священства',html:'<p><b>Диакон</b> — помогает при богослужении. <b>Пресвитер (иерей)</b> — совершает таинства, кроме хиротонии. <b>Епископ</b> — полнота священства, рукополагает.</p>'},
+ {type:'mc',q:'Какое таинство НЕ может совершать иерей?',options:['Крещение','Венчание','Хиротонию (рукоположение)','Соборование'],answer:2,explain:'Рукоположение (хиротонию) совершает только епископ.'},
+ {type:'match',prompt:'Монашеские степени по возрастанию',pairs:[['Иеродиакон','Монах-диакон'],['Иеромонах','Монах-священник'],['Игумен','Настоятель'],['Архимандрит','Высшая для монаха до епископа']]},
+ {type:'mc',q:'Какое облачение отличает епископа?',options:['Епитрахиль','Омофор и митра','Поручи','Стихарь'],answer:1,explain:'Омофор — широкая лента на плечах (символ заблудшей овцы), и митра. Диакон — в стихаре с орарём.'},
+ {type:'mc',q:'Как называется высшая степень в Церкви?',options:['Митрополит','Архиепископ','Патриарх','Архимандрит'],answer:2,explain:'Епископские титулы по возрастанию чести: епископ → архиепископ → митрополит → патриарх.'},
+]},
+{id:'s3',section:'serv',icon:'📚',title:'Круги и книги',sub:'Суточный круг · ектении · Минея',cards:[
+ {type:'info',tag:'Три круга',title:'Круги богослужения',html:'<p><b>Суточный</b>: вечерня, повечерие, полунощница, утреня, часы (1,3,6,9), Литургия. <b>Седмичный</b>: каждый день недели — своё воспоминание (воскресенье — Воскресению, среда и пятница — Кресту). <b>Годовой</b>: неподвижные и подвижные праздники.</p>'},
+ {type:'match',prompt:'Богослужебная книга — что содержит',pairs:[['Служебник','Чинопоследования для священника'],['Часослов','Неизменяемые молитвы служб'],['Октоих','Песнопения на 8 гласов'],['Минея','Службы святым по датам']]},
+ {type:'mc',q:'Что такое ектения?',options:['Крестный ход','Ряд молитвенных прошений с ответом хора','Чтение Евангелия','Каждение'],answer:1,explain:'Прошения диакона, на которые хор отвечает «Господи, помилуй» или «Подай, Господи». Виды: великая, малая, сугубая, просительная.'},
+ {type:'mc',q:'Какие книги содержат подвижные службы года?',options:['Октоих и Минея','Триодь Постная и Триодь Цветная','Часослов и Служебник','Типикон и Требник'],answer:1,explain:'Постная Триодь — Великий пост; Цветная — от Пасхи до Троицы. Типикон — устав, Требник — требы (крещение, венчание, отпевание).'},
+ {type:'mc',q:'В каких книгах — тексты для таинств и треб (крещение, венчание, отпевание)?',options:['В Минее','В Требнике','В Октоихе','В Часослове'],answer:1,explain:'Требник — книга священника для совершения треб.'},
+]},
+{id:'s4',section:'serv',icon:'🍞',title:'Литургия и Пасха',sub:'Части литургии · Страстная · Пасха',cards:[
+ {type:'info',tag:'Главная служба',title:'Три части Литургии',html:'<p><b>Проскомидия</b> — приготовление хлеба и вина (в алтаре). <b>Литургия оглашенных</b> — чтение Апостола и Евангелия. <b>Литургия верных</b> — Евхаристический канон, освящение Даров, причащение.</p>'},
+ {type:'mc',q:'Чья Литургия служится чаще всего?',options:['Василия Великого','Иоанна Златоуста','Григория Двоеслова','Иакова'],answer:1,explain:'Литургия свт. Иоанна Златоуста. Василия Великого — 10 раз в году; Преждеосвященных Даров — Великим постом.'},
+ {type:'order',prompt:'Части Литургии по порядку',items:['Проскомидия','Литургия оглашенных','Литургия верных']},
+ {type:'match',prompt:'День Страстной седмицы — событие',pairs:[['Великий Четверг','Тайная Вечеря'],['Великая Пятница','Распятие и погребение'],['Великая Суббота','Пребывание во гробе']],},
+ {type:'recite',title:'Тропарь Пасхи',note:'Знать наизусть — есть в программе СДА',text:'Христо́с воскре́се из ме́ртвых, сме́ртию смерть попра́в, и су́щим во гробе́х живо́т дарова́в.'},
+ {type:'mc',q:'Что составляет всенощное бдение?',options:['Только Литургию','Вечерню, утреню и первый час','Часы и повечерие','Проскомидию'],answer:1,explain:'Служится накануне воскресений и праздников. Важные моменты: «Свете тихий», полиелей, чтение Евангелия, помазание елеем, великое славословие.'},
+]},
+]);
+
+/* ============ VI. ИСТОРИЯ ЦЕРКВИ ============ */
+UNITS.push(...[
+{id:'h1',section:'hist',icon:'🏺',title:'Апостольский век',sub:'Собор · гонения · Константин',cards:[
+ {type:'mc',q:'Какой вопрос решал Апостольский Собор в Иерусалиме?',options:['Дату Пасхи','Нужно ли язычникам соблюдать закон Моисея','Иконопочитание','Символ веры'],answer:1,explain:'Ок. 49–51 г.: обрезание и обрядовый закон не обязательны для уверовавших язычников.'},
+ {type:'mc',q:'В каком году был разрушен Иерусалим римлянами?',options:['33 г.','70 г.','313 г.','1054 г.'],answer:1,explain:'В 70 г. Титом — как и предсказывал Христос.'},
+ {type:'info',tag:'Свобода',title:'Гонения и Константин',html:'<p>Три века христиан гнали (Нерон, Диоклетиан и др.). В <b>313 г.</b> св. царь <b>Константин</b> Миланским эдиктом дал свободу веры. Его мать <b>царица Елена</b> обрела в Иерусалиме Крест Господень.</p>'},
+ {type:'mc',q:'Кто из царей дал христианам свободу и созвал I Вселенский собор?',options:['Юстиниан','Константин Великий','Нерон','Владимир'],answer:1,explain:'Св. равноапостольный Константин; его мать — св. Елена.'},
+ {type:'tf',q:'До 313 года христианство было гонимой верой в Римской империи.',answer:true,explain:'Массовые гонения при ряде императоров; множество мучеников.'},
+]},
+{id:'h2',section:'hist',icon:'⚖️',title:'Ереси и 7 Соборов',sub:'Годы и решения — учить точно',cards:[
+ {type:'info',tag:'Учить наизусть',title:'Семь Вселенских соборов',html:'<p><b>I</b> Никея <b>325</b> — против Ария, Символ (ч.1). <b>II</b> Константинополь <b>381</b> — о Духе, Символ дополнен. <b>III</b> Эфес <b>431</b> — против Нестория. <b>IV</b> Халкидон <b>451</b> — против монофизитов, две природы. <b>V</b> <b>553</b>. <b>VI</b> <b>680–681</b> — против монофелитов, две воли. <b>VII</b> Никея <b>787</b> — иконопочитание.</p>'},
+ {type:'match',prompt:'Собор — год',pairs:[['I Никейский','325'],['II Константинопольский','381'],['IV Халкидонский','451'],['VII Никейский','787']]},
+ {type:'match',prompt:'Ересь — против кого собор',pairs:[['Арианство','I Собор (Христос — не Бог)'],['Несторианство','III Собор (о Богородице)'],['Монофизитство','IV Собор (одна природа)'],['Иконоборчество','VII Собор']]},
+ {type:'mc',q:'Что утвердил VII Вселенский собор (787 г.)?',options:['Символ веры','Иконопочитание','Дату Пасхи','Две воли во Христе'],answer:1,explain:'Против иконоборчества — утверждено почитание святых икон.'},
+ {type:'mc',q:'Ересь Ария утверждала, что…',options:['Христос — только человек','Христос — творение, не истинный Бог','У Христа одна воля','Богородица не Дева'],answer:1,explain:'Арий отрицал Божество Сына. Осуждён на I Соборе (325); там же — первая часть Символа веры.'},
+ {type:'mc',q:'Сколько всего было Вселенских соборов?',options:['Три','Пять','Семь','Двенадцать'],answer:2,explain:'Семь Вселенских соборов (325–787 гг.).'},
+]},
+{id:'h3',section:'hist',icon:'🇷🇺',title:'Христианство на Руси',sub:'Кирилл и Мефодий · Крещение · святые',cards:[
+ {type:'mc',q:'Кто создал славянскую азбуку и перевёл богослужение?',options:['Владимир и Ольга','Кирилл и Мефодий','Борис и Глеб','Пётр и Феврония'],answer:1,explain:'Святые равноапостольные братья Кирилл и Мефодий — просветители славян.'},
+ {type:'mc',q:'В каком году крещена Русь?',options:['862','988','1054','1147'],answer:1,explain:'В 988 г. св. равноапостольный князь Владимир крестил Русь. Ранее христианство приняла его бабка — княгиня Ольга.'},
+ {type:'mc',q:'Кто первые русские святые — страстотерпцы?',options:['Пётр и Павел','Борис и Глеб','Антоний и Феодосий','Кирилл и Мефодий'],answer:1,explain:'Князья Борис и Глеб, принявшие смерть без сопротивления.'},
+ {type:'info',tag:'Обители',title:'Монашество на Руси',html:'<p><b>Киево-Печерская лавра</b> (прп. Антоний и Феодосий) — колыбель русского монашества. Позже <b>прп. Сергий Радонежский</b> возродил духовную жизнь и благословил Дмитрия Донского на Куликовскую битву.</p>'},
+ {type:'mc',q:'Кого называют возродителем духовной жизни на Руси в XIV веке?',options:['Прп. Серафима Саровского','Прп. Сергия Радонежского','Свт. Николая','Прп. Антония'],answer:1,explain:'Прп. Сергий Радонежский, основатель Троице-Сергиевой лавры.'},
+]},
+{id:'h4',section:'hist',icon:'⏳',title:'Русская Церковь: вехи',sub:'1054 · 1453 · раскол · новомученики',cards:[
+ {type:'match',prompt:'Дата — событие',pairs:[['1054','Отпадение Рима от Православия'],['1204','Разграбление Константинополя крестоносцами'],['1453','Падение Константинополя'],['1589','Учреждение патриаршества на Руси']]},
+ {type:'mc',q:'Когда учреждено патриаршество в Русской Церкви и кто первый патриарх?',options:['1448, Иона','1589, Иов','1721, Пётр','1917, Тихон'],answer:1,explain:'В 1589 г., первый патриарх — Иов.'},
+ {type:'mc',q:'Что произошло с патриаршеством при Петре I?',options:['Укреплено','Упразднено (Синодальный период)','Перенесено в Киев','Разделено'],answer:1,explain:'Пётр I упразднил патриаршество (1721–1917); восстановлено на Соборе 1917 г., патриарх Тихон.'},
+ {type:'mc',q:'Что такое раскол XVII века?',options:['Разделение с Римом','Разделение из-за исправления книг и обрядов при патр. Никоне','Отделение Украины','Спор об иконах'],answer:1,explain:'Старообрядческий раскол при патриархе Никоне и царе Алексее Михайловиче.'},
+ {type:'info',tag:'XIX–XX вв.',title:'Старчество и новомученики',html:'<p><b>Прп. Серафим Саровский</b> и <b>Оптина пустынь</b> возродили старчество. После революции <b>1917 г.</b> начались жестокие гонения — сонм <b>новомучеников и исповедников</b>. С <b>1988 г.</b> (1000-летие Крещения) — возрождение Русской Церкви.</p>'},
+ {type:'mc',q:'Кто ныне Предстоятель Русской Православной Церкви?',options:['Патриарх Тихон','Патриарх Алексий II','Патриарх Кирилл','Патриарх Иов'],answer:2,explain:'Святейший Патриарх Московский и всея Руси Кирилл.'},
+]},
+]);
+
+/* ============ VII. ПРАЗДНИКИ И СОБЕСЕДОВАНИЕ ============ */
+UNITS.push(...[
+{id:'f1',section:'feast',icon:'🗓️',title:'Двунадесятые праздники',sub:'12 великих + даты',cards:[
+ {type:'info',tag:'Учить даты',title:'Двунадесятые праздники',html:'<p>Рождество Богородицы — <b>21 сент.</b> · Воздвижение Креста — <b>27 сент.</b> · Введение во храм — <b>4 дек.</b> · Рождество Христово — <b>7 янв.</b> · Крещение — <b>19 янв.</b> · Сретение — <b>15 фев.</b> · Благовещение — <b>7 апр.</b> · Вход в Иерусалим — <b>за неделю до Пасхи</b> · Вознесение — <b>40-й день</b> · Троица — <b>50-й день</b> · Преображение — <b>19 авг.</b> · Успение — <b>28 авг.</b></p>'},
+ {type:'match',prompt:'Праздник — дата',pairs:[['Рождество Богородицы','21 сентября'],['Воздвижение Креста','27 сентября'],['Введение во храм','4 декабря'],['Успение Богородицы','28 августа']]},
+ {type:'match',prompt:'Праздник — дата',pairs:[['Преображение','19 августа'],['Рождество Христово','7 января'],['Крещение Господне','19 января'],['Сретение','15 февраля']]},
+ {type:'mc',q:'Какие праздники — переходящие (зависят от Пасхи)?',options:['Рождество и Крещение','Вход в Иерусалим, Вознесение, Троица','Успение и Преображение','Сретение и Благовещение'],answer:1,explain:'Они отсчитываются от даты Пасхи, которая каждый год разная.'},
+ {type:'mc',q:'Входит ли Пасха в число двунадесятых праздников?',options:['Да, она первая из них','Нет — она выше всех праздников','Да, она двенадцатая','Только в високосный год'],answer:1,explain:'Пасха — «праздников праздник», стоит выше двунадесятых.'},
+ {type:'tf',q:'Всего двунадесятых праздников — двенадцать.',answer:true,explain:'«Дванадесять» = двенадцать. Пасха — сверх них.'},
+]},
+{id:'f2',section:'feast',icon:'🍃',title:'Посты',sub:'Многодневные и однодневные',cards:[
+ {type:'match',prompt:'Пост — когда',pairs:[['Великий пост','7 недель перед Пасхой'],['Петров пост','После Троицы до 12 июля'],['Успенский пост','14–27 августа'],['Рождественский пост','28 ноября – 6 января']]},
+ {type:'mc',q:'Сколько многодневных постов в году?',options:['Два','Три','Четыре','Семь'],answer:2,explain:'Четыре: Великий, Петров, Успенский, Рождественский.'},
+ {type:'mc',q:'Какие дни недели — постные (кроме сплошных седмиц)?',options:['Понедельник и вторник','Среда и пятница','Суббота и воскресенье','Только пятница'],answer:1,explain:'Среда — предание Христа, пятница — Распятие.'},
+ {type:'mc',q:'Самый строгий и длинный пост?',options:['Петров','Успенский','Великий','Рождественский'],answer:2,explain:'Великий пост — 7 недель подготовки к Пасхе.'},
+]},
+{id:'f3',section:'feast',icon:'🗣️',title:'Собеседование',sub:'Как отвечать искренне',cards:[
+ {type:'info',tag:'Главное',title:'Ценится искренность, а не заученность',html:'<p>Комиссия смотрит на <b>мотивацию, воцерковлённость и зрелость</b>. Отвечай <b>своими словами</b>, честно и просто. Ниже — типичные вопросы и ориентиры.</p>'},
+ {type:'info',tag:'Вопрос',title:'«Почему вы хотите поступить в семинарию?»',html:'<p>Соедини <b>личный путь к вере</b> (приход, духовник, чтение Евангелия) и <b>трезвое понимание</b>: семинария — это подготовка к служению, а не просто диплом.</p>'},
+ {type:'info',tag:'Вопрос',title:'«Как вы понимаете священническое служение?»',html:'<p>Совершение таинств, молитва за людей, проповедь и пастырская забота. Это <b>жертвенное служение по образу Христа</b> — Пастыря доброго (Ин. 10:11), а не профессия и карьера.</p>'},
+ {type:'tf',q:'На собеседовании лучше отвечать заученными формулировками, чем своими словами.',answer:false,explain:'Наоборот: искренность ценится выше эрудиции. Говори просто и честно.'},
+ {type:'info',tag:'Готовься',title:'Что ещё могут спросить',html:'<ul style="margin:0;padding-left:18px;line-height:1.6"><li>О святом, чьё имя носишь</li><li>Какой сегодня церковный день, пост, праздник</li><li>Есть ли духовник, как давно в Церкви</li><li>Отношение к послушанию и распорядку</li><li>О семье, планах, что делал до поступления</li></ul>'},
+ {type:'mc',q:'Какой документ обычно обязателен для поступления?',options:['Загранпаспорт','Рекомендация духовника/священника, заверенная архиереем','Диплом вуза','Военный билет'],answer:1,explain:'Без рекомендации духовника (заверенной правящим архиереем) документы обычно не принимают. Возьми её заранее!'},
+]},
+{id:'f4',section:'feast',icon:'📝',title:'Общие экзамены',sub:'История России и русский язык',cards:[
+ {type:'info',tag:'Важно знать',title:'На бакалавриат — не только богословие',html:'<p>Кроме «Закона Божия» и «Основ веры», в СДА на направление <b>48.03.01 Теология</b> засчитывают ещё <b>Историю / Историю России</b> и <b>Русский язык</b> — как ЕГЭ или внутренний экзамен академии. Минимальные баллы: история — 32, русский — 36.</p>'},
+ {type:'mc',q:'В каком году произошло Крещение Руси (это и церковная, и российская история)?',options:['862','988','1147','1240'],answer:1,explain:'988 г., князь Владимир. Полезно и для «Закона Божия», и для истории России.'},
+ {type:'match',prompt:'Русская история — дата',pairs:[['Куликовская битва','1380'],['Стояние на Угре (конец ига)','1480'],['Начало правления Петра I','1682'],['Отечественная война','1812']]},
+ {type:'mc',q:'Русский язык: «также» слитно или раздельно в «Он также пришёл» (= тоже)?',options:['Всегда раздельно','Слитно, когда = «тоже/и»','Всегда через дефис','Только с запятой'],answer:1,explain:'«Также/тоже» в значении «и, вдобавок» — слитно. «Так же», как наречие+частица (сравнение) — раздельно.'},
+ {type:'info',tag:'Совет',title:'Как готовиться к общим предметам',html:'<p>Эти два предмета — школьная программа. За 10 дней <b>прорешай пробные варианты ЕГЭ</b> по истории и русскому (ФИПИ), повтори даты, орфографию и пунктуацию. Здесь — только напоминание; основной упор приложения — на богословские экзамены.</p>'},
+]},
+]);
+
+/* ============ 10-ДНЕВНЫЙ ПЛАН ============ */
+
+
+/* ============ РАЗДЕЛ VIII: ОБЩИЕ ЭКЗАМЕНЫ ============ */
+SECTIONS.push({id:'gen', n:'VIII', title:'Общие экзамены: сочинение, русский, история'});
+
+UNITS.push(...[
+{id:'so1',section:'gen',icon:'✍️',title:'Сочинение',sub:'Структура · аргументы · критерии',cards:[
+ {type:'info',tag:'Как устроено',title:'Сочинение — это конструктор, не вдохновение',html:`<p>Оценивают не «красоту души», а <b>структуру + аргументы + грамотность</b>. Схема, которая почти всегда заходит: <b>вступление</b> (обозначь тему/тезис) → <b>2 аргумента</b> с примерами из литературы → <b>вывод</b> (ответь на свой тезис). Пиши по абзацам.</p>`},
+ {type:'order',prompt:'Расставь части сочинения по порядку',items:['Вступление: тема и тезис','Аргумент 1 + пример из литературы','Аргумент 2 + пример из литературы','Вывод: ответ на тезис']},
+ {type:'mc',q:'Минимальный объём итогового сочинения?',options:['100 слов','150 слов','250 слов','500 слов'],answer:2,explain:'Порог — от 250 слов (меньше 250 — «незачёт» автоматически). Целься в 300–350.'},
+ {type:'tf',q:'В сочинении нужен хотя бы один аргумент из литературы.',answer:true,explain:'Да. Без опоры на литературный пример работу не засчитывают.'},
+ {type:'match',prompt:'Что за что отвечает',pairs:[['Вступление','заявляешь тему и тезис'],['Основная часть','аргументы + примеры'],['Заключение','вывод по тезису']]},
+ {type:'mc',q:'На что ещё смотрят, кроме содержания?',options:['На почерк','На орфографию и пунктуацию','На длину предложений','На цвет пасты'],answer:1,explain:'Грамотность оценивается отдельно — ошибки снижают балл. Проверяй -тся/-ться, запятые, «не».'},
+]},
+{id:'ru1',section:'gen',icon:'📝',title:'Русский язык',sub:'Топ-правила, где все ошибаются',cards:[
+ {type:'info',tag:'Стратегия',title:'Бей по частым ошибкам',html:`<p>На экзамене выигрывает не тот, кто знает всё, а кто не сыпется на типовом: <b>-тся/-ться</b>, <b>«не»</b> с разными частями речи, <b>запятые</b> в сложном предложении, <b>-н-/-нн-</b>. Разберём их — а тесты гоняй на ФИПИ.</p>`},
+ {type:'mc',q:'«Он хочет учит..ся» — как правильно?',options:['учится','учиться','учитца','учиться'],answer:1,explain:'Вопрос «что делать?» → есть мягкий знак: «учиться». «Что делает?» → «учится», без ь.'},
+ {type:'mc',q:'«Задача (не)решена» — как пишется «не»?',options:['слитно','раздельно'],answer:1,explain:'С краткими причастиями «не» пишется раздельно: «не решена». С глаголами тоже раздельно.'},
+ {type:'tf',q:'«Незнакомец» (сущ.) пишется слитно, если можно заменить синонимом без «не».',answer:true,explain:'Да: «незнакомец» = «чужак» → слитно. При противопоставлении с «а» — раздельно.'},
+ {type:'fill',tag:'Вставь запятую-слово',text:'Я знал, |что| он придёт, и ждал у ворот.',hint:'Перед союзом в сложноподчинённом предложении ставится запятая'},
+ {type:'match',prompt:'Правило → пример',pairs:[['-тся (что делает?)','он смеётся'],['-ться (что делать?)','надо трудиться'],['«не» с глаголом','не пришёл']]},
+]},
+{id:'hi1',section:'gen',icon:'🏛️',title:'История России до 1917',sub:'Каркас дат и правителей',cards:[
+ {type:'info',tag:'Как учить',title:'Держись за скелет из дат',html:`<p>Не пытайся выучить всё — закрепи <b>опорные даты</b>, к ним цепляется остальное: 862 Рюрик, 988 Крещение, 1380 Куликово, 1480 конец ига, 1547 первый царь, 1613 Романовы, 1721 империя, 1861 отмена крепостного права.</p>`},
+ {type:'order',prompt:'Расставь события по порядку',items:['862 — призвание Рюрика','988 — Крещение Руси','1380 — Куликовская битва','1480 — конец ордынского ига','1613 — воцарение Романовых','1861 — отмена крепостного права']},
+ {type:'mc',q:'При каком князе крестили Русь в 988 году?',options:['Ярослав Мудрый','Владимир Святославич','Александр Невский','Иван Грозный'],answer:1,explain:'Князь Владимир крестил Русь в 988 г. За это прославлен как равноапостольный.'},
+ {type:'match',prompt:'Правитель → дело',pairs:[['Дмитрий Донской','Куликовская битва 1380'],['Иван III','конец ига 1480'],['Иван IV Грозный','первый царь, 1547'],['Пётр I','империя, 1721']]},
+ {type:'tf',q:'Династия Романовых пришла к власти в 1613 году после Смуты.',answer:true,explain:'Верно. Земский собор 1613 г. избрал царём Михаила Романова.'},
+ {type:'mc',q:'В каком году отменили крепостное право?',options:['1812','1861','1905','1917'],answer:1,explain:'1861 г., реформа Александра II — «Освободителя».'},
+]},
+{id:'hi2',section:'gen',icon:'⚙️',title:'История России: XX век',sub:'1917 → 1991',cards:[
+ {type:'info',tag:'Ориентиры',title:'Век катастроф и рывков',html:`<p>Опорные точки: <b>1917</b> — две революции (Февраль — отречение Николая II; Октябрь — большевики), <b>1922</b> СССР, <b>1941–1945</b> Великая Отечественная (9 мая — Победа), <b>1961</b> Гагарин, <b>1991</b> распад СССР.</p>`},
+ {type:'order',prompt:'Расставь по порядку',items:['1917 — революции','1922 — образование СССР','1941–1945 — Великая Отечественная','1961 — полёт Гагарина','1991 — распад СССР']},
+ {type:'mc',q:'Что произошло в октябре 1917 года?',options:['Отмена крепостного права','Приход большевиков к власти','Начало Первой мировой','Распад СССР'],answer:1,explain:'Октябрьская революция — большевики во главе с Лениным берут власть.'},
+ {type:'mc',q:'День Победы в Великой Отечественной войне —',options:['22 июня','1 сентября','9 мая','7 ноября'],answer:2,explain:'9 мая 1945 г. — капитуляция Германии, окончание войны для СССР.'},
+ {type:'match',prompt:'Год → событие',pairs:[['1917','революции и отречение царя'],['1945','Победа'],['1961','первый человек в космосе'],['1991','конец СССР']]},
+]},
+]);
+
+/* ============ ТЕОРИЯ (краткая суть перед тестом) ============ */
+const LEARN = {
+ p1:`<p><b>Зачем.</b> С начальных молитв стартует любое правило — и с них же начинают на собеседовании. Просят читать <b>наизусть по-церковнославянски</b>.</p><p><b>Порядок:</b> «Слава Тебе, Боже наш» → «Царю Небесный» (это молитва <b>Святому Духу</b>; её НЕ читают от Пасхи до Троицы) → Трисвятое «Святый Боже…» (<b>трижды</b>) → «Пресвятая Троице» → «Отче наш».</p>`,
+ p2:`<p><b>«Отче наш»</b> дал Сам Христос (Мф. 6) — поэтому её зовут <b>Молитвой Господней</b>.</p><p><b>Символ веры</b> — не просьба, а <b>исповедание</b>: 12 членов о том, во что мы верим. Составлен на <b>I Соборе (Никея, 325)</b> и дополнен на <b>II (Константинополь, 381)</b> → отсюда «Никео-Цареградский». Оба текста — наизусть.</p>`,
+ p3:`<p><b>«Богородице Дево, радуйся»</b> — ангельское приветствие Деве Марии. <b>«Достойно есть»</b> — величание Богородицы.</p><p><b>Псалом 50</b> «Помилуй мя, Боже» — <b>покаянный</b> (Давид написал после греха с Вирсавией). <b>Псалом 90</b> «Живый в помощи Вышняго» — о защите Божией. На экзамене спросят: какой псалом о чём.</p>`,
+ p4:`<p><b>Молитва Ефрема Сирина</b> — <b>великопостная</b>, с земными поклонами: «дух праздности, уныния, любоначалия и празднословия не даждь ми…».</p><p><b>Перед Причащением</b> (свт. Иоанна Златоуста): «Верую, Господи, и исповедую…» — заканчивается словами <b>«от нихже первый есмь аз»</b>. Обе молитвы прямо указаны в программе СДА.</p>`,
+ c1:`<p>Символ веры — это <b>карта веры</b> из 12 членов. Коротко о чём каждый:</p><p>1 — Бог Отец, Творец. <b>2–7</b> — о Христе (рождён, не сотворён, единосущен Отцу; распят при Пилате, воскрес в 3-й день, вознёсся, придёт судить). 8 — Дух Святой. 9 — Церковь. 10 — крещение. 11–12 — воскресение мёртвых и жизнь будущего века.</p>`,
+ c2:`<p>О Боге узнаём двумя путями: <b>естественное откровение</b> (через мир, красоту, совесть) и <b>сверхъестественное</b> — Бог Сам открылся: это <b>Писание</b> (Библия) и <b>Предание</b> (живой опыт Церкви: Соборы, святые, богослужение).</p><p>Библия = Ветхий Завет (до Христа) + Новый Завет. Она <b>богодухновенна</b>. Вера — не слепота, а доверие Богу и верность Ему.</p>`,
+ c3:`<p><b>Троица:</b> один Бог в трёх Лицах — Отец, Сын, Дух. Не три бога и не «маски», а <b>единосущны и нераздельны</b>.</p><p><b>Христос</b> — истинный Бог и истинный человек в одном Лице (<b>Богочеловек</b>). <b>Грех</b> — не просто «нарушение», а разрыв с Богом; первородный грех унаследован от Адама и врачуется Христом.</p>`,
+ c4:`<p><b>Церковь</b> — Тело Христово, Глава её — Христос.</p><p><b>7 таинств</b>, где подаётся благодать: <b>Крещение</b> (рождение в Церковь), <b>Миропомазание</b> (дары Духа), <b>Причащение</b> (соединение со Христом), <b>Покаяние</b> (прощение грехов), <b>Священство</b>, <b>Брак</b>, <b>Елеосвящение</b> (соборование). Центральные — Крещение и Причащение.</p>`,
+ c5:`<p><b>10 заповедей</b> (Моисей, Синай): первые 4 — про отношение к Богу, остальные 6 — к людям (не убий, не укради, чти отца и мать…). Это «нельзя».</p><p><b>Заповеди блаженства</b> (Нагорная проповедь, 9 штук: «Блаженны нищие духом…») — это «как быть»: путь к Богу через смирение, милость, чистоту сердца.</p>`,
+ c6:`<p><b>Главная заповедь:</b> люби Бога всем сердцем и ближнего как самого себя — на ней держится весь закон.</p><p><b>Молитва</b> — разговор с Богом: бывает просительная, благодарственная, покаянная, хвалебная. <b>Зло</b> — не «вещь», сотворённая Богом, а искажение добра, отпадение свободной воли (сначала падшие ангелы, потом люди). Бог зла не творил.</p>`,
+ o1:`<p>Бог творит мир <b>из ничего</b> (евр. «бара»), словом, за шесть «дней». Венец творения — человек, по <b>образу и подобию</b> Божию.</p><p>Ангелы созданы раньше; часть отпала (сатана). Адам и Ева в раю → <b>грехопадение</b> (запретный плод, змей) → изгнание, в мир входит смерть. Тут же дано первое обещание Спасителя (Быт. 3:15).</p>`,
+ o2:`<p>Люди развратились → <b>Потоп</b>; спасается <b>Ной</b> с семьёй в ковчеге, знак завета — радуга.</p><p><b>Патриархи:</b> <b>Авраам</b> — отец верующих (готов принести в жертву Исаака — образец веры). Исаак, <b>Иаков</b> (=Израиль, 12 сыновей). <b>Иосиф</b> — продан братьями, стал правителем Египта и спас род. <b>Мелхиседек</b> — прообраз Христа как Царя и Священника.</p>`,
+ o3:`<p>Евреи в рабстве в Египте. Бог зовёт <b>Моисея</b> из неопалимой купины. <b>10 казней</b> → фараон отпускает народ.</p><p><b>Пасха</b> (кровь агнца на дверях), переход через <b>Чермное (Красное) море</b>. На <b>Синае</b> — 10 заповедей. 40 лет в пустыне. <b>Медный змий</b> (кто взглянул — жив) — прообраз Креста. Впереди — Земля обетованная.</p>`,
+ o4:`<p>Судьи → цари: <b>Саул</b> (первый, отвергнут), <b>Давид</b> (муж по сердцу Богу, псалмы, взял Иерусалим), <b>Соломон</b> (мудрость, построил <b>Храм</b>).</p><p>После Соломона царство раскололось. <b>Пророки</b> (Исаия, Иеремия, Даниил…) обличали и предсказывали Мессию. За грехи — <b>Вавилонский плен</b>, затем возвращение и ожидание Христа.</p>`,
+ n1:`<p><b>Благовещение:</b> Архангел Гавриил возвещает Деве Марии — родишь Спасителя от Духа Святого. <b>Рождество Христово</b> в Вифлееме (волхвы, пастухи, звезда).</p><p><b>Сретение:</b> на 40-й день Младенца принесли в Храм, встретил старец Симеон («ныне отпущаеши»). Богородица — <b>Приснодева</b>, родила Богочеловека.</p>`,
+ n2:`<p>Иоанн Предтеча крестит на <b>Иордане</b>. <b>Крещение Христа = Богоявление</b>: глас Отца, Дух в виде голубя — явлена <b>Троица</b>.</p><p>40 дней поста, <b>искушение</b> в пустыне — Христос отверг сатану. Призвал <b>12 апостолов</b>, начал проповедь Царства Божия, творил чудеса.</p>`,
+ n3:`<p><b>Притчи</b> — истории с духовным смыслом: о <b>блудном сыне</b> (покаяние и любовь Отца), о <b>сеятеле</b> (как принимаем слово), о <b>добром самарянине</b> (кто мне ближний).</p><p><b>Чудеса</b> — знаки власти и милости: исцеления, <b>воскрешение Лазаря</b>, насыщение 5000, хождение по воде. Это не магия, а любовь и явление Бога.</p>`,
+ n4:`<p>Вход в Иерусалим → <b>Тайная вечеря</b> (Христос установил Причащение). Гефсимания, предательство Иуды, суд, <b>распятие на Голгофе</b>, смерть, погребение.</p><p>На <b>3-й день — Воскресение</b> (жёны-мироносицы, пустой гроб). 40 дней явлений → <b>Вознесение</b>. На 50-й день — <b>Пятидесятница</b>: сошествие Духа, рождение Церкви.</p>`,
+ s1:`<p>Храм делится на три части: <b>притвор</b> (вход), <b>средняя часть</b> (для молящихся) и <b>алтарь</b> (за иконостасом).</p><p>В алтаре — <b>престол</b> (главное место), на нём <b>антиминс</b>. Рядом <b>жертвенник</b>, где готовят Дары. Знай предметы: <b>потир</b> (чаша), <b>дискос</b> (блюдо), звездица, <b>копие</b>, <b>лжица</b> (ложечка для Причастия).</p>`,
+ s2:`<p><b>Три степени священства:</b> <b>диакон</b> (помогает), <b>священник</b> (пресвитер — совершает таинства), <b>епископ</b> (полнота, рукополагает других).</p><p>Облачения растут по степени: диакон — стихарь, <b>орарь</b>, поручи; священник добавляет <b>епитрахиль</b>, пояс, фелонь; епископ — <b>омофор</b>, митру, панагию, саккос. Цвет меняется по праздникам.</p>`,
+ s3:`<p>Богослужение идёт кругами: <b>суточный</b> (вечерня, утреня, часы, литургия), седмичный, годовой.</p><p><b>Ектении</b> — прошения диакона, на которые отвечают «Господи, помилуй». Книги: <b>Служебник</b> (для священника), Часослов, <b>Октоих</b> (по гласам), <b>Минея</b> (по датам), <b>Триодь</b> (пост и Пасха), <b>Типикон</b> (устав), <b>Требник</b> (требы).</p>`,
+ s4:`<p><b>Литургия</b> — главное богослужение, на ней совершается Причащение. Три части: <b>проскомидия</b> (готовят Дары), литургия <b>оглашенных</b> (чтения), литургия <b>верных</b> (Евхаристия). Чаще всего — свт. Иоанна Златоуста.</p><p><b>Страстная седмица:</b> Великий Четверг (Тайная вечеря), Пятница (распятие), Суббота. <b>Пасха</b> — «Христос воскресе!» — праздник праздников.</p>`,
+ h1:`<p>После Пятидесятницы апостолы разнесли веру по миру. <b>Апостольский собор</b> (ок. 49–51) решил: язычникам не обязательно исполнять весь закон Моисея.</p><p>Гонения от Рима, множество мучеников. Перелом — император <b>Константин</b>: <b>Миланский эдикт 313</b> (свобода христианам) и <b>I Вселенский собор 325</b>.</p>`,
+ h2:`<p><b>Это любимый вопрос — учи годы наизусть.</b> 7 Вселенских соборов защитили веру от ересей:</p><p><b>I</b> Никея <b>325</b> (арианство; Христос — Бог; Символ ч.1) · <b>II</b> Константинополь <b>381</b> (о Духе; Символ ч.2) · <b>III</b> Эфес <b>431</b> (Богородица, против Нестория) · <b>IV</b> Халкидон <b>451</b> (две природы Христа) · <b>V</b> 553 · <b>VI</b> 680–681 (две воли) · <b>VII</b> Никея <b>787</b> (иконопочитание).</p>`,
+ h3:`<p><b>Кирилл и Мефодий</b> (IX в.) — славянская азбука и переводы, «учители словенские». <b>988 — Крещение Руси</b> при князе <b>Владимире</b>.</p><p>Ключевые святые: прпп. <b>Антоний и Феодосий</b> Печерские, прп. <b>Сергий Радонежский</b> (XIV в.), прп. <b>Серафим Саровский</b>, <b>Оптинские старцы</b>. Их полезно назвать на собеседовании.</p>`,
+ h4:`<p><b>1054</b> — разделение Церквей (Восток/Запад). <b>1453</b> — падение Константинополя.</p><p>На Руси: <b>1589</b> — патриаршество; XVII в. — <b>раскол</b> (реформы патр. Никона, старообрядцы); <b>Пётр I</b> упразднил патриаршество (Синод); <b>1917</b> — восстановление патриаршества (свт. <b>Тихон</b>), затем гонения и новомученики; <b>1988</b> — 1000-летие Крещения Руси.</p>`,
+ f1:`<p><b>12 двунадесятых праздников</b> (даты по н. ст.) — часто спрашивают:</p><p>Рождество Богородицы <b>21.09</b> · Воздвижение Креста <b>27.09</b> · Введение во храм <b>04.12</b> · Рождество Христово <b>07.01</b> · Крещение <b>19.01</b> · Сретение <b>15.02</b> · Благовещение <b>07.04</b> · Вход в Иерусалим и Вознесение и Троица (переходящие, привязаны к Пасхе) · Преображение <b>19.08</b> · Успение <b>28.08</b>. Над всеми — <b>Пасха</b>.</p>`,
+ f2:`<p><b>4 многодневных поста:</b> <b>Великий</b> (перед Пасхой, самый строгий, 7 недель), <b>Петров</b>, <b>Успенский</b> (14–28.08), <b>Рождественский</b> (28.11–06.01).</p><p><b>Однодневные:</b> среда и пятница круглый год, Крещенский сочельник, Усекновение (11.09), Воздвижение (27.09). Пост — не диета, а время воздержания и усиленной молитвы.</p>`,
+ f3:`<p><b>Отвечай искренне, а не заученно.</b> Спросят: почему хочешь учиться и/или в священство, как пришёл к вере, твоё <b>молитвенное правило</b>, любимый святой и почему, читал ли Евангелие.</p><p>Попросят прочитать молитвы наизусть. Главное — <b>живая вера и честность</b>, а не идеальные формулировки. Не бойся сказать «не знаю» — это лучше, чем выдумывать.</p>`,
+ f4:`<p>Кроме богословия, в СДА сдают и <b>школьное</b>: <b>сочинение</b>, <b>историю (России)</b>, <b>русский язык</b> — как ЕГЭ или внутренний экзамен. Мин. баллы: история <b>32</b>, русский <b>36</b>.</p><p>Это отдельные экзамены 21–23 июля. В приложении есть выжимки (раздел VIII), но основную практику бери на <b>ФИПИ</b> — прорешивай пробники.</p>`,
+ so1:`<p>Сочинение = <b>структура + аргументы + грамотность</b>, а не «вдохновение». Схема: вступление (тезис) → 2 аргумента с примерами из литературы → вывод. Объём <b>от 250 слов</b>, минимум <b>один литературный пример</b>. Следи за орфографией и запятыми — за грамотность тоже ставят балл.</p>`,
+ ru1:`<p>Не учи всё — бей по частым ошибкам: <b>-тся/-ться</b> (вопрос «что делать?» → с ь), <b>«не»</b> (с глаголом раздельно; с сущ./прил. слитно, если есть синоним; раздельно при «а»), <b>запятая</b> перед что/который/если, <b>-н-/-нн-</b>. Разбор внутри + гоняй тесты ФИПИ.</p>`,
+ hi1:`<p>Держись за <b>опорные даты</b>: 862 Рюрик · 988 Крещение (Владимир) · 1380 Куликово (Дмитрий Донской) · 1480 конец ига (Иван III) · 1547 первый царь (Иван IV) · 1613 Романовы · 1721 империя (Пётр I) · 1861 отмена крепостного права (Александр II).</p>`,
+ hi2:`<p>XX век по точкам: <b>1917</b> — Февраль (отречение Николая II) и Октябрь (большевики, Ленин) · <b>1922</b> СССР · <b>1941–1945</b> Великая Отечественная (<b>9 мая</b> — Победа) · <b>1961</b> Гагарин · <b>1991</b> распад СССР.</p>`,
+};
+UNITS.forEach(u=>{ if(LEARN[u.id]) u.learn=LEARN[u.id]; });
+
+/* ============ ЭКЗАМЕНЫ (расписание и что к чему) ============ */
+const EXAMS = [
+ {id:'soch', date:'2026-07-21', time:'14:00', title:'Сочинение',        icon:'✍️', units:['so1']},
+ {id:'boj',  date:'2026-07-21', time:'17:30', title:'Закон Божий',       icon:'📖', tracks:['pray','cat','ot','nt','serv','hist','feast']},
+ {id:'sob',  date:'2026-07-22', time:'10:00', title:'Собеседование',     icon:'🗣️', units:['f3','p1','p2','p3','p4']},
+ {id:'ist',  date:'2026-07-22', time:'17:00', title:'История',           icon:'🏛️', units:['hi1','hi2']},
+ {id:'rus',  date:'2026-07-23', time:'10:00', title:'Русский язык',      icon:'📝', units:['ru1']},
+];
+
+/* ============ ПЛАН: 3 круга по реальным датам ============ */
+const PLAN = [
+ {d:'2026-07-08',r:1,t:'Круг 1 · Молитвы',s:'База, которую просят всегда.',units:['p1','p2','p3','p4']},
+ {d:'2026-07-09',r:1,t:'Круг 1 · Символ веры и катехизис',s:'Во что и почему мы верим.',units:['c1','c2','c3','c4','c5','c6']},
+ {d:'2026-07-10',r:1,t:'Круг 1 · Ветхий Завет',s:'От творения до пророков.',units:['o1','o2','o3','o4']},
+ {d:'2026-07-11',r:1,t:'Круг 1 · Новый Завет',s:'От Рождества до Пятидесятницы.',units:['n1','n2','n3','n4']},
+ {d:'2026-07-12',r:1,t:'Круг 1 · Богослужение',s:'Храм, священство, литургия.',units:['s1','s2','s3','s4']},
+ {d:'2026-07-13',r:1,t:'Круг 1 · История, праздники, собеседование',s:'Соборы, даты, ответы.',units:['h1','h2','h3','h4','f1','f2','f3']},
+ {d:'2026-07-14',r:2,t:'Круг 2 · Молитвы + катехизис',s:'Второй прогон + сочинение (экзамен уже 21-го!).',units:['p1','p2','p3','p4','c1','c2','c3','c4','c5','c6','so1']},
+ {d:'2026-07-15',r:2,t:'Круг 2 · Библия + русский',s:'ВЗ и НЗ ещё раз + русский язык.',units:['o1','o2','o3','o4','n1','n2','n3','n4','ru1']},
+ {d:'2026-07-16',r:2,t:'Круг 2 · Служба, история + История России',s:'Закрепляем богословие + светская история.',units:['s1','s2','s3','s4','h1','h2','h3','h4','f1','f2','hi1','hi2']},
+ {d:'2026-07-17',r:3,t:'Круг 3 · Сочинение + Закон Божий (ч.1)',s:'Финал по порядку экзаменов: молитвы, катехизис.',units:['so1','p1','p2','p3','p4','c1','c2','c3','c4','c5','c6']},
+ {d:'2026-07-18',r:3,t:'Круг 3 · Закон Божий (ч.2)',s:'Библия и богослужение — быстрый прогон.',units:['o1','o2','o3','o4','n1','n2','n3','n4','s1','s2','s3','s4']},
+ {d:'2026-07-19',r:3,t:'Круг 3 · Закон Божий (ч.3) + собеседование',s:'История Церкви, праздники, ответы. Повтори слабое!',units:['h1','h2','h3','h4','f1','f2','f3']},
+ {d:'2026-07-20',r:3,t:'Канун · История + Русский + слабое',s:'Последний прогон общих экзаменов и вкладка «Повтор».',units:['hi1','hi2','ru1','f3']},
+];
+/* ==================== СОСТОЯНИЕ ==================== */
+const LS_KEY = 'lampada_v1';
+let mem = {};
+function load(){ try{ const r=localStorage.getItem(LS_KEY); return r?JSON.parse(r):null }catch(e){ return mem._s||null } }
+function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(S)) }catch(e){ mem._s=JSON.parse(JSON.stringify(S)) } }
+const todayStr = ()=> new Date().toISOString().slice(0,10);
+
+let S = load() || {
+  xp:0, streak:0, lastDay:null, dayXp:0, dayXpDate:todayStr(),
+  units:{}, srs:{}, plan:{}
+};
+// суточный сброс дневного XP
+if(S.dayXpDate !== todayStr()){ S.dayXpDate=todayStr(); S.dayXp=0; }
+const DAILY_GOAL = 40;
+
+function bumpStreak(){
+  const t = todayStr();
+  if(S.lastDay === t) return;
+  const y = new Date(Date.now()-864e5).toISOString().slice(0,10);
+  S.streak = (S.lastDay === y) ? S.streak+1 : 1;
+  S.lastDay = t;
+}
+function addXp(n){
+  S.xp += n;
+  if(S.dayXpDate!==todayStr()){ S.dayXpDate=todayStr(); S.dayXp=0; }
+  S.dayXp += n;
+}
+const unitById = id => UNITS.find(u=>u.id===id);
+function unitProg(id){ const u=unitById(id); const done=(S.units[id]&&S.units[id].done)||[]; return u? done.length/u.cards.length : 0; }
+function unitDone(id){ return unitProg(id)>=0.999; }
+function gradeable(c){ return ['mc','tf','fill','match','order','flip'].includes(c.type); }
+function unitPasses(id){ return (S.units[id]&&S.units[id].passes)||0; }
+
+/* ==================== ДАТЫ, ЭКЗАМЕНЫ, ПРОГОНЫ ==================== */
+const PASS_GOAL = 3;
+function daysBetween(a,b){ return Math.round((Date.parse(b)-Date.parse(a))/864e5); }
+function planIndexForToday(){
+  const t=todayStr();
+  let i=PLAN.findIndex(p=>p.d===t); if(i>=0) return i;
+  i=PLAN.findIndex(p=>p.d>t); if(i>=0) return i;
+  return PLAN.length-1;
+}
+function examUnits(e){ return e.units ? e.units.slice() : UNITS.filter(u=>e.tracks.includes(u.section)).map(u=>u.id); }
+function examAvgPasses(e){ const ids=examUnits(e); if(!ids.length) return 0; return ids.reduce((s,id)=>s+Math.min(PASS_GOAL,unitPasses(id)),0)/ids.length; }
+function nextExams(){ const t=todayStr(); return EXAMS.slice().sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)); }
+function firstUpcomingExam(){ const t=todayStr(); return nextExams().find(e=>e.date>=t)||null; }
+
+/* ==================== ХЕЛПЕРЫ ==================== */
+const $ = s => document.querySelector(s);
+const el = (h)=>{ const d=document.createElement('div'); d.innerHTML=h.trim(); return d.firstElementChild; };
+const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),1800); }
+function refreshTop(){ $('#xpN').textContent=S.xp; $('#streakN').textContent=S.streak; }
+
+/* ==================== SRS ==================== */
+function srsDue(){
+  const out=[];
+  for(const u of UNITS){ u.cards.forEach((c,i)=>{ const id=u.id+'#'+i; if(S.srs[id]) out.push({unit:u,card:c,idx:i,id}); }); }
+  return out;
+}
+
+/* ==================== НАВИГАЦИЯ ==================== */
+let TAB='home';
+function setTab(t){ TAB=t; document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t)); render(); window.scrollTo(0,0); }
+document.querySelectorAll('#nav button').forEach(b=> b.onclick=()=>setTab(b.dataset.tab));
+
+function render(){
+  refreshTop();
+  const v=$('#view');
+  if(TAB==='home') v.innerHTML=viewHome();
+  else if(TAB==='review') v.innerHTML=viewReview();
+  else if(TAB==='plan') v.innerHTML=viewPlan();
+  else if(TAB==='ref') v.innerHTML=viewRef();
+  bindView();
+}
+
+/* ==================== ЭКРАН: ПУТЬ ==================== */
+const RU_MON=['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
+function fmtDate(iso){ const d=new Date(iso+'T00:00:00'); return d.getDate()+' '+RU_MON[d.getMonth()]; }
+function ndays(n){ const a=Math.abs(n),l=a%10,d=a%100; if(l===1&&d!==11)return n+' день'; if(l>=2&&l<=4&&(d<12||d>14))return n+' дня'; return n+' дней'; }
+function viewHome(){
+  const pct=Math.min(100,Math.round(S.dayXp/DAILY_GOAL*100));
+  const C=2*Math.PI*29, off=C*(1-pct/100);
+  const pi=planIndexForToday(); const plan=PLAN[pi]; const isToday=plan.d===todayStr();
+  const ex=firstUpcomingExam(); const dLeft=ex?daysBetween(todayStr(),ex.date):0;
+  const eyebrow = ex ? (dLeft<=0?'Экзамены идут — держись!':'До первого экзамена — '+ndays(dLeft)) : 'Впереди экзамены';
+  let html=`<div class="wrap">
+    <p class="h-eyebrow">🕯️ ${eyebrow}</p>
+    <h1 class="h1">Слава Тебе,<br>Боже наш</h1>
+    <p class="lead">Сначала — короткая теория, потом тест. Каждый материал прогоняем трижды.</p>
+    <div class="goalcard">
+      <div class="ring"><svg width="66" height="66"><circle cx="33" cy="33" r="29" stroke="#e6dcc1" stroke-width="7" fill="none"/><circle cx="33" cy="33" r="29" stroke="#E0B54A" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${off}"/></svg><div class="rc">${pct}%</div></div>
+      <div><div class="gt">Цель дня</div><div class="gs">${S.dayXp} / ${DAILY_GOAL} очков сегодня${pct>=100?' — исполнено 🕯️':''}</div></div>
+    </div>
+    <button class="btn gold" data-plan="${pi}" style="margin-bottom:14px"><b>${isToday?'Сегодня':fmtDate(plan.d)} · круг ${plan.r}</b> · ${esc(plan.t.replace(/^Круг \d+ · |^Канун · /,''))} →</button>`;
+
+  // расписание экзаменов + прогоны
+  html+=`<div class="exam-card"><div class="ec-h">📅 Расписание экзаменов</div>`;
+  for(const e of nextExams()){
+    const ap=examAvgPasses(e), done=daysBetween(todayStr(),e.date)<0;
+    const rounds=Math.floor(ap); const fp=Math.round(ap/PASS_GOAL*100);
+    html+=`<div class="exrow ${done?'past':''}">
+      <div class="ex-ic">${e.icon}</div>
+      <div class="ex-mid"><div class="ex-t">${esc(e.title)}</div><div class="ex-d">${fmtDate(e.date)}, ${e.time}</div>
+        <div class="ex-bar"><i style="width:${fp}%"></i></div></div>
+      <div class="ex-p">${rounds}/${PASS_GOAL}<span>прогон${rounds===1?'':'ов'}</span></div>
+    </div>`;
+  }
+  html+=`<div class="ec-note">«Прогоны» считаются автоматически: пройди материал экзамена — счётчик растёт. Цель — 3 к каждому экзамену.</div></div>`;
+
+  for(const sec of SECTIONS){
+    const us=UNITS.filter(u=>u.section===sec.id);
+    html+=`<div class="section-label"><span class="n">${sec.n}</span><span class="tt">${esc(sec.title)}</span><span class="ln"></span></div><div class="units">`;
+    for(const u of us){
+      const p=unitProg(u.id), done=p>=0.999, started=p>0&&!done, ps=unitPasses(u.id);
+      const dots=Array.from({length:PASS_GOAL},(_,i)=>`<span class="pd ${i<ps?'on':''}"></span>`).join('');
+      const badge = done?`<span class="check"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>`
+        : `<span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>`;
+      html+=`<button class="unit ${done?'done':''}" data-unit="${u.id}">
+        <span class="ico">${u.icon}</span>
+        <span class="ub"><span class="ut">${esc(u.title)} ${ps>=PASS_GOAL?'<span class="badge ok">3/3 ✓</span>':(started?'<span class=badge>идёт</span>':(!p?'<span class="badge new">старт</span>':''))}</span>
+          <span class="us">${esc(u.sub)}</span>
+          <span class="passrow"><span class="pdots" title="прогонов: ${ps}">${dots}</span>${p>0&&!done?`<span class="prog"><i style="width:${Math.round(p*100)}%"></i></span>`:''}</span></span>
+        ${badge}
+      </button>`;
+    }
+    html+=`</div>`;
+  }
+  html+=`<div class="sync-card"><div class="sc-ic">🔗</div><div class="sc-tx"><b>Учишься с телефона и компьютера?</b><span>Перенеси прогресс кодом — без интернета, сервера и регистрации.</span></div><button class="sc-b" id="syncBtn">Открыть</button></div>`;
+  html+=`<div class="footer-note">Лампада · учебный помощник.<br>Прогресс хранится на этом устройстве. <span class="reset-btn" id="resetBtn">сбросить</span></div></div>`;
+  return html;
+}
+
+/* ==================== ЭКРАН: ПОВТОРЕНИЕ ==================== */
+function viewReview(){
+  const due=srsDue();
+  if(!due.length) return `<div class="wrap"><p class="h-eyebrow">Повторение</p><h1 class="h1">Всё повторено</h1>
+    <p class="lead">Здесь копятся вопросы, где ты ошибся, — чтобы вернуться к ним позже. Сейчас список пуст. Пройди уроки на вкладке «Путь».</p>
+    <div class="card"><h3>Как это работает</h3><p style="font-family:var(--serif);font-size:15px;line-height:1.6;margin:0">Ошибся в вопросе — он попадёт сюда. Ответишь верно при повторении — уйдёт. Так слабые места подтягиваются сами.</p></div></div>`;
+  return `<div class="wrap"><p class="h-eyebrow">Повторение</p><h1 class="h1">${due.length} на повтор</h1>
+    <p class="lead">Вопросы, где были ошибки. Разбери их — и они уйдут из списка.</p>
+    <button class="btn rub" id="startReview">Повторить (${Math.min(15,due.length)} карт.) →</button>
+    <div class="footer-note" style="text-align:left;padding-left:2px">Собрано из уроков, где были неточности.</div></div>`;
+}
+
+/* ==================== ЭКРАН: ПЛАН ==================== */
+const ROUND_LABEL={1:'Круг 1 · понять',2:'Круг 2 · закрепить',3:'Круг 3 · финал'};
+function viewPlan(){
+  const t=todayStr(), pi=planIndexForToday();
+  let html=`<div class="wrap"><p class="h-eyebrow">Маршрут · 3 прогона до экзаменов</p><h1 class="h1">План по дням</h1>
+    <p class="lead">Три круга: сначала понять всё, потом закрепить, потом финальный прогон в порядке экзаменов. Нажми на тему, чтобы открыть.</p>`;
+  let lastR=0;
+  PLAN.forEach((p,i)=>{
+    if(p.r!==lastR){ html+=`<div class="round-sep">${ROUND_LABEL[p.r]||('Круг '+p.r)}</div>`; lastR=p.r; }
+    const done=p.units.every(u=>unitPasses(u)>=1), today=p.d===t, past=p.d<t;
+    const num=new Date(p.d+'T00:00:00').getDate();
+    html+=`<div class="plan-day ${done?'done':''} ${today?'today':''} ${past&&!today?'past':''}">
+      <div class="plan-rail"><div class="plan-dot">${done?'✓':num}</div>${i<PLAN.length-1?'<div class="plan-line"></div>':''}</div>
+      <div class="plan-body"><div class="pd-t">${fmtDate(p.d)}${today?' · сегодня':''} — ${esc(p.t.replace(/^Круг \d+ · |^Канун · /,''))}</div><div class="pd-s">${esc(p.s)}</div>
+      <div class="tagrow">${p.units.map(uid=>{const u=unitById(uid); const ps=unitPasses(uid); return `<span class="tag ${ps>=PASS_GOAL?'full':''}" data-unit="${uid}" role="button">${u.icon} ${esc(u.title)} ${'·'.repeat(0)}<b class="tp">${ps}/${PASS_GOAL}</b></span>`}).join('')}</div></div></div>`;
+  });
+  html+=`<div class="round-sep">Дни экзаменов</div>`;
+  for(const e of nextExams()){
+    html+=`<div class="plan-day exam"><div class="plan-rail"><div class="plan-dot ex">${e.icon}</div></div>
+      <div class="plan-body"><div class="pd-t">${fmtDate(e.date)}, ${e.time} — ${esc(e.title)}</div>
+      <div class="pd-s">Прогонов сделано: ${Math.floor(examAvgPasses(e))} из ${PASS_GOAL}.</div></div></div>`;
+  }
+  html+=`<div class="warn" style="margin-top:12px"><b>Общие экзамены — школьная база.</b> Историю (России), русский и сочинение приложение даёт выжимкой (раздел VIII). Главную практику бери на пробниках <b>ФИПИ</b>. Мин. баллы: история — 32, русский — 36.</div></div>`;
+  return html;
+}
+
+/* ==================== ЭКРАН: СПРАВОЧНИК ==================== */
+function refBody(u){
+  let h='';
+  if(u.learn) h+=`<div class="ref-learn"><span class="rl-tag">СУТЬ</span>${u.learn}</div>`;
+  for(const c of u.cards){
+    if(c.type==='info') h+=`<div style="margin-bottom:10px">${c.title?`<p><b>${esc(c.title)}</b></p>`:''}${c.html}</div>`;
+    else if(c.type==='recite') h+=`<div class="slav"><b style="font-family:var(--ui);font-size:12px;color:var(--rubric)">${esc(c.title)}</b><br>${esc(c.text)}</div>`;
+    else if(c.type==='mc') h+=`<p><b>?</b> ${esc(c.q)}<br>→ <em>${esc(c.options[c.answer])}</em>${c.explain?`. ${esc(c.explain)}`:''}</p>`;
+    else if(c.type==='tf') h+=`<p><b>?</b> ${esc(c.q)} → <em>${c.answer?'Верно':'Неверно'}</em>. ${esc(c.explain||'')}</p>`;
+    else if(c.type==='match') h+=`<ul>${c.pairs.map(p=>`<li>${esc(p[0])} — ${esc(p[1])}</li>`).join('')}</ul>`;
+    else if(c.type==='order') h+=`<p><b>Порядок:</b> ${c.items.map((x,i)=>`${i+1}) ${esc(x)}`).join('; ')}</p>`;
+    else if(c.type==='fill') h+=`<div class="slav">${esc(c.text.replace(/\|([^|]+)\|/g,'$1'))}</div>`;
+    else if(c.type==='flip') h+=`<p><b>${esc(c.front)}</b> — ${esc(c.back)}</p>`;
+  }
+  return h;
+}
+function viewRef(){
+  let html=`<div class="wrap"><p class="h-eyebrow">Шпаргалка</p><h1 class="h1">Справочник</h1>
+    <p class="lead">Весь материал для чтения перед сном или в дороге. Разверни раздел.</p>`;
+  for(const sec of SECTIONS){
+    html+=`<div class="section-label"><span class="n">${sec.n}</span><span class="tt">${esc(sec.title)}</span><span class="ln"></span></div>`;
+    for(const u of UNITS.filter(x=>x.section===sec.id)){
+      html+=`<div class="acc"><button data-acc="${u.id}"><span class="ai">${u.icon}</span><span class="at">${esc(u.title)}</span><span class="ac"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="abody">${refBody(u)}</div></div>`;
+    }
+  }
+  html+=`<div class="footer-note">Источник: конспект абитуриента + программа вступительных испытаний СДА 2026.</div></div>`;
+  return html;
+}
+
+/* ==================== ПРИВЯЗКА СОБЫТИЙ ==================== */
+function bindView(){
+  document.querySelectorAll('[data-unit]').forEach(b=> b.onclick=()=>startLesson(unitById(b.dataset.unit)));
+  document.querySelectorAll('[data-plan]').forEach(b=> b.onclick=()=>{ const p=PLAN[+b.dataset.plan]; const first=p.units.find(u=>unitPasses(u)<PASS_GOAL)||p.units.find(u=>!unitDone(u))||p.units[0]; startLesson(unitById(first)); });
+  const rb=$('#resetBtn'); if(rb) rb.onclick=()=>{ if(confirm('Сбросить весь прогресс?')){ S={xp:0,streak:0,lastDay:null,dayXp:0,dayXpDate:todayStr(),units:{},srs:{},plan:{}}; save(); render(); } };
+  const sr=$('#startReview'); if(sr) sr.onclick=()=>startReview();
+  const syb=$('#syncBtn'); if(syb) syb.onclick=openSync;
+  document.querySelectorAll('[data-acc]').forEach(b=> b.onclick=()=> b.closest('.acc').classList.toggle('open'));
+}
+
+/* ==================== СИНХРОНИЗАЦИЯ (код прогресса, без сервера) ==================== */
+function b64e(s){ return btoa(unescape(encodeURIComponent(s))); }
+function b64d(s){ return decodeURIComponent(escape(atob(s))); }
+function exportCode(){ return 'LMP1:'+b64e(JSON.stringify(S)); }
+function mergeState(inc){
+  if(!inc || typeof inc!=='object') throw new Error('bad');
+  S.xp=Math.max(S.xp||0, inc.xp||0);
+  S.streak=Math.max(S.streak||0, inc.streak||0);
+  if(inc.lastDay && (!S.lastDay || inc.lastDay>S.lastDay)) S.lastDay=inc.lastDay;
+  const t=todayStr();
+  if(inc.dayXpDate===t){ if(S.dayXpDate===t) S.dayXp=Math.max(S.dayXp||0, inc.dayXp||0); else { S.dayXp=inc.dayXp||0; S.dayXpDate=t; } }
+  const iu=inc.units||{};
+  for(const id in iu){ const cur=(S.units[id]&&S.units[id].done)||[]; const add=iu[id].done||[]; S.units[id]={done:[...new Set([...cur,...add])]}; }
+  S.srs=Object.assign({}, S.srs||{}, inc.srs||{});
+}
+function importCode(raw){
+  raw=(raw||'').trim(); if(raw.startsWith('LMP1:')) raw=raw.slice(5);
+  let obj; try{ obj=JSON.parse(b64d(raw)); }catch(e){ toast('Код не распознан'); return; }
+  try{ mergeState(obj); save(); render(); toast('Прогресс объединён ✓'); closeSync(); }catch(e){ toast('Не удалось загрузить код'); }
+}
+function openSync(){
+  let o=$('#sync'); if(!o){ o=el('<div class="player" id="sync"></div>'); document.body.appendChild(o); }
+  document.body.style.overflow='hidden';
+  o.innerHTML=`<div class="sync-wrap">
+    <button class="x" id="syX" aria-label="Закрыть">✕</button>
+    <p class="h-eyebrow">Между устройствами</p>
+    <h2 class="sync-h">Код прогресса</h2>
+    <p class="lead" style="font-size:14px">Скопируй код на одном устройстве и вставь на другом — прогресс объединится, ничего не потеряется.</p>
+    <textarea id="syTa" class="sync-ta" placeholder="Вставь сюда код с другого устройства…" spellcheck="false"></textarea>
+    <div class="btn-row"><button class="btn ghost" id="syGet">📋 Показать мой код</button><button class="btn green" id="syPut">Загрузить код</button></div>
+    <div class="footer-note" style="text-align:left">Код — зашифрованная строка с твоим прогрессом. Никакого сервера: переносишь сам — через заметки, себе в мессенджер или AirDrop.</div>
+  </div>`;
+  $('#syX').onclick=closeSync;
+  $('#syGet').onclick=async ()=>{ const code=exportCode(); const ta=$('#syTa'); ta.value=code; ta.focus(); ta.select();
+    try{ await navigator.clipboard.writeText(code); toast('Код скопирован ✓'); }
+    catch(e){ try{ document.execCommand('copy'); toast('Код скопирован ✓'); }catch(_){ toast('Выдели текст и скопируй вручную'); } } };
+  $('#syPut').onclick=()=>{ const v=$('#syTa').value; if(!v.trim()){ toast('Сначала вставь код в поле'); return; } importCode(v); };
+}
+function closeSync(){ const o=$('#sync'); if(o) o.remove(); document.body.style.overflow=''; }
+
+/* ==================== ПЛЕЕР УРОКОВ ==================== */
+let L=null, A=null, PHASE='answer';
+function startLesson(u, skipTheory){
+  if(u.learn && !skipTheory){ openTheory(u); return; }
+  L={cards:u.cards.map((c,i)=>({unit:u,card:c,idx:i,id:u.id+'#'+i})),pos:0,correct:0,graded:0,xp:0,review:false,title:u.title,unitId:u.id};
+  openPlayer();
+}
+function openTheory(u){
+  let p=$('#player'); if(!p){ p=el('<div class="player" id="player"></div>'); document.body.appendChild(p); }
+  document.body.style.overflow='hidden';
+  const ps=unitPasses(u.id);
+  p.innerHTML=`<div class="p-head">
+     <button class="x" id="tX" aria-label="Закрыть">✕</button>
+     <div class="pbar"><i style="width:6%"></i></div>
+     <div class="hearts">${u.icon} теория</div></div>
+   <div class="p-body"><div class="theory">
+     <div class="th-tag">СНАЧАЛА РАЗБЕРЁМСЯ · ${esc(u.title)}${ps?` · прогон ${ps+1}`:''}</div>
+     <h2 class="th-h">${esc(u.sub||u.title)}</h2>
+     <div class="th-body">${u.learn}</div>
+   </div></div>
+   <div class="p-foot"><button class="btn gold" id="toQuiz">Понял, к тесту →</button></div>`;
+  $('#tX').onclick=closePlayer;
+  $('#toQuiz').onclick=()=>startLesson(u,true);
+}
+function startReview(){
+  const due=shuffle(srsDue()).slice(0,15);
+  if(!due.length){ toast('Нечего повторять'); return; }
+  L={cards:due,pos:0,correct:0,graded:0,xp:0,review:true,title:'Повторение'};
+  openPlayer();
+}
+function openPlayer(){
+  let p=$('#player'); if(!p){ p=el('<div class="player" id="player"></div>'); document.body.appendChild(p); }
+  document.body.style.overflow='hidden'; step();
+}
+function closePlayer(){ const p=$('#player'); if(p) p.remove(); document.body.style.overflow=''; render(); }
+
+function markDone(entry,correct){
+  const uid=entry.unit.id;
+  S.units[uid]=S.units[uid]||{done:[]};
+  if(!S.units[uid].done.includes(entry.idx)) S.units[uid].done.push(entry.idx);
+  if(gradeable(entry.card)){
+    if(correct===false) S.srs[entry.id]=true;
+    else if(correct===true && S.srs[entry.id]) delete S.srs[entry.id];
+  }
+}
+
+function step(){
+  const p=$('#player');
+  if(L.pos>=L.cards.length){ return finish(); }
+  A=null; PHASE='answer';
+  const entry=L.cards[L.pos], c=entry.card;
+  const pct=Math.round(L.pos/L.cards.length*100);
+  p.innerHTML=`
+   <div class="p-head">
+     <button class="x" id="pX" aria-label="Закрыть">✕</button>
+     <div class="pbar"><i style="width:${pct}%"></i></div>
+     <div class="hearts">${L.review?'🔁':'🕯️'} ${L.pos+1}/${L.cards.length}</div>
+   </div>
+   <div class="p-body" id="pBody"></div>
+   <div class="p-foot" id="pFoot"></div>`;
+  $('#pX').onclick=()=>{ if(confirm('Выйти из урока? Прогресс сохранён.')) closePlayer(); };
+  const body=$('#pBody'), foot=$('#pFoot');
+  const R={mc:renderMC,tf:renderTF,fill:renderFill,match:renderMatch,order:renderOrder,flip:renderFlip,recite:renderRecite,info:renderInfo}[c.type];
+  R(entry,c,body,foot);
+}
+
+function footBtn(label,cls,fn,disabled){
+  return `<button class="btn ${cls||''}" id="mainBtn" ${disabled?'disabled':''}>${label}</button>`;
+}
+function feedback(ok,text){
+  return `<div class="fb ${ok?'good':'bad'}"><span class="fi">${ok?'✓':'✕'}</span><div><b>${ok?'Верно!':'Не совсем'}</b>${text?esc(text):''}</div></div>`;
+}
+function proceed(entry,correct,xp){
+  markDone(entry,correct); addXp(xp); L.xp+=xp;
+  if(gradeable(entry.card)){ L.graded++; if(correct)L.correct++; }
+  save();
+}
+
+/* ---- multiple choice ---- */
+function renderMC(entry,c,body,foot){
+  body.innerHTML=`<div class="qtag">${L.review?'Повторение':'Вопрос'}</div><div class="q">${esc(c.q)}</div>
+    <div class="opts">${c.options.map((o,i)=>`<button class="opt" data-i="${i}"><span class="k">${'АБВГ'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div>`;
+  foot.innerHTML=footBtn('Проверить','',null,true);
+  const opts=body.querySelectorAll('.opt'), btn=$('#mainBtn');
+  opts.forEach(o=> o.onclick=()=>{ if(PHASE!=='answer')return; opts.forEach(x=>x.classList.remove('sel')); o.classList.add('sel'); A=+o.dataset.i; btn.disabled=false; });
+  btn.onclick=()=>{
+    if(PHASE==='answer'){ PHASE='reveal'; const ok=A===c.answer;
+      opts.forEach((o,i)=>{ o.style.pointerEvents='none'; if(i===c.answer)o.className='opt correct'; else if(i===A)o.className='opt wrong'; else o.classList.add('dim'); });
+      foot.innerHTML=feedback(ok,c.explain?' '+c.explain:'')+footBtn('Дальше',ok?'green':'rub');
+      $('#mainBtn').onclick=()=>{ proceed(entry,ok,ok?3:1); next(); };
+    }
+  };
+}
+
+/* ---- true / false ---- */
+function renderTF(entry,c,body,foot){
+  body.innerHTML=`<div class="qtag">Верно или нет</div><div class="q">${esc(c.q)}</div>
+    <div class="tf"><button class="opt" data-v="1">Верно</button><button class="opt" data-v="0">Неверно</button></div>`;
+  foot.innerHTML=footBtn('Проверить','',null,true);
+  const opts=body.querySelectorAll('.opt'), btn=$('#mainBtn');
+  opts.forEach(o=> o.onclick=()=>{ if(PHASE!=='answer')return; opts.forEach(x=>x.classList.remove('sel')); o.classList.add('sel'); A=o.dataset.v==='1'; btn.disabled=false; });
+  btn.onclick=()=>{
+    if(PHASE==='answer'){ PHASE='reveal'; const ok=A===c.answer;
+      opts.forEach(o=>{ o.style.pointerEvents='none'; const v=o.dataset.v==='1'; if(v===c.answer)o.className='opt correct'; else if(v===A)o.className='opt wrong'; });
+      foot.innerHTML=feedback(ok,c.explain?' '+c.explain:'')+footBtn('Дальше',ok?'green':'rub');
+      $('#mainBtn').onclick=()=>{ proceed(entry,ok,ok?3:1); next(); };
+    }
+  };
+}
+
+/* ---- fill in the blanks ---- */
+function renderFill(entry,c,body,foot){
+  const parts=c.text.split(/\|([^|]+)\|/); // odd indexes are answers
+  const answers=[]; parts.forEach((p,i)=>{ if(i%2) answers.push(p); });
+  let html=`<div class="qtag">Вставь пропущенное</div>${c.hint?`<div class="q sm">${esc(c.hint)}</div>`:''}<div class="fill">`;
+  let bi=0;
+  parts.forEach((p,i)=>{ if(i%2){ html+=`<span class="blank empty" data-b="${bi}"></span>`; bi++; } else html+=esc(p); });
+  html+=`</div><div class="bank">${shuffle(answers.map((a,i)=>({a,i}))).map(o=>`<button class="chip" data-w="${esc(o.a)}">${esc(o.a)}</button>`).join('')}</div>`;
+  body.innerHTML=html;
+  foot.innerHTML=footBtn('Проверить','',null,true);
+  const blanks=[...body.querySelectorAll('.blank')], chips=[...body.querySelectorAll('.chip')], btn=$('#mainBtn');
+  const filled=new Array(answers.length).fill(null);
+  function redraw(){ blanks.forEach((b,i)=>{ b.textContent=filled[i]||''; b.classList.toggle('empty',!filled[i]); }); btn.disabled=filled.some(x=>x===null); }
+  chips.forEach(ch=> ch.onclick=()=>{ if(PHASE!=='answer'||ch.classList.contains('used'))return; const idx=filled.indexOf(null); if(idx<0)return; filled[idx]=ch.dataset.w; ch.classList.add('used'); ch._blank=idx; redraw(); });
+  blanks.forEach((b,i)=> b.onclick=()=>{ if(PHASE!=='answer'||!filled[i])return; const w=filled[i]; const ch=chips.find(c=>c.dataset.w===w&&c.classList.contains('used')&&c._blank===i)||chips.find(c=>c.dataset.w===w&&c.classList.contains('used')); if(ch){ch.classList.remove('used');ch._blank=null;} filled[i]=null; redraw(); });
+  btn.onclick=()=>{
+    if(PHASE==='answer'){ PHASE='reveal'; let ok=true;
+      blanks.forEach((b,i)=>{ const good=filled[i]===answers[i]; if(!good)ok=false; b.style.color=good?'var(--green)':'var(--rubric)'; b.style.borderColor=good?'var(--green)':'var(--rubric)'; if(!good)b.textContent=answers[i]; });
+      chips.forEach(ch=>ch.style.pointerEvents='none');
+      foot.innerHTML=feedback(ok,ok?'':' Правильные слова подставлены.')+footBtn('Дальше',ok?'green':'rub');
+      $('#mainBtn').onclick=()=>{ proceed(entry,ok,ok?3:1); next(); };
+    }
+  };
+}
+
+/* ---- match pairs ---- */
+function renderMatch(entry,c,body,foot){
+  const left=c.pairs.map((p,i)=>({t:p[0],i})), right=shuffle(c.pairs.map((p,i)=>({t:p[1],i})));
+  body.innerHTML=`<div class="qtag">Соедини пары</div>${c.prompt?`<div class="q sm">${esc(c.prompt)}</div>`:''}
+    <div class="match"><div class="mcol" id="mL">${left.map(o=>`<button class="mitem" data-i="${o.i}">${esc(o.t)}</button>`).join('')}</div>
+    <div class="mcol" id="mR">${right.map(o=>`<button class="mitem" data-i="${o.i}">${esc(o.t)}</button>`).join('')}</div></div>`;
+  foot.innerHTML=`<div class="fb good" style="background:var(--blue-soft);color:#20456a"><span class="fi" style="background:var(--blue)">i</span><div>Выбери слева, затем пару справа.</div></div>`+footBtn('Дальше','green',null,true);
+  const L2=[...body.querySelectorAll('#mL .mitem')], R2=[...body.querySelectorAll('#mR .mitem')], btn=$('#mainBtn');
+  let selL=null, matched=0, mistakes=0;
+  function clearSel(){ L2.forEach(x=>x.classList.remove('sel')); R2.forEach(x=>x.classList.remove('sel')); }
+  L2.forEach(b=> b.onclick=()=>{ if(b.classList.contains('ok'))return; clearSel(); selL=b; b.classList.add('sel'); });
+  R2.forEach(b=> b.onclick=()=>{ if(b.classList.contains('ok')||!selL)return;
+    if(b.dataset.i===selL.dataset.i){ b.classList.add('ok'); selL.classList.add('ok'); selL.classList.remove('sel'); selL=null; matched++;
+      if(matched===c.pairs.length){ btn.disabled=false; const ok=mistakes===0; foot.querySelector('.fb').outerHTML=feedback(ok,ok?' Все пары верны.':' Пары собраны, но были ошибки — повторим позже.'); }
+    } else { mistakes++; b.classList.add('no'); const s=selL; setTimeout(()=>{b.classList.remove('no','sel');s.classList.remove('sel');},350); selL=null; }
+  });
+  btn.onclick=()=>{ const ok=mistakes===0; proceed(entry,ok,ok?3:1); next(); };
+}
+
+/* ---- order ---- */
+function renderOrder(entry,c,body,foot){
+  let order=shuffle(c.items.map((t,i)=>({t,i})));
+  if(order.every((o,i)=>o.i===i)) order=order.reverse();
+  body.innerHTML=`<div class="qtag">Расставь по порядку</div>${c.prompt?`<div class="q sm">${esc(c.prompt)}</div>`:''}<div class="order" id="ord"></div>`;
+  foot.innerHTML=footBtn('Проверить','');
+  const wrap=$('#ord'), btn=$('#mainBtn');
+  function draw(){ wrap.innerHTML=order.map((o,i)=>`<div class="oitem" data-p="${i}"><span class="on">${i+1}</span><span>${esc(o.t)}</span><span class="ar"><button data-up="${i}" ${i===0?'disabled':''}>▲</button><button data-dn="${i}" ${i===order.length-1?'disabled':''}>▼</button></span></div>`).join('');
+    wrap.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{const i=+b.dataset.up;[order[i-1],order[i]]=[order[i],order[i-1]];draw();});
+    wrap.querySelectorAll('[data-dn]').forEach(b=>b.onclick=()=>{const i=+b.dataset.dn;[order[i+1],order[i]]=[order[i],order[i+1]];draw();});
+  }
+  draw();
+  btn.onclick=()=>{ if(PHASE!=='answer')return; PHASE='reveal'; const ok=order.every((o,i)=>o.i===i);
+    [...wrap.children].forEach((row,i)=>{ row.classList.add(order[i].i===i?'ok':'no'); row.querySelectorAll('button').forEach(b=>b.disabled=true); });
+    foot.innerHTML=feedback(ok,ok?'':' Верный порядок — сверху вниз по номерам.')+footBtn('Дальше',ok?'green':'rub');
+    $('#mainBtn').onclick=()=>{ proceed(entry,ok,ok?3:1); next(); };
+  };
+}
+
+/* ---- flip card ---- */
+function renderFlip(entry,c,body,foot){
+  body.innerHTML=`<div class="qtag">Карточка</div><div class="flip" id="fl"><div class="flip-in">
+    <div class="flip-face"><div class="fq">${esc(c.front)}</div><div class="tap">нажми, чтобы перевернуть</div></div>
+    <div class="flip-face back"><div class="fa">${esc(c.back)}</div><div class="tap">знаешь?</div></div></div></div>`;
+  foot.innerHTML=footBtn('Показать ответ','');
+  const fl=$('#fl'), btn=$('#mainBtn');
+  fl.onclick=()=> reveal();
+  function reveal(){ if(PHASE!=='answer')return; PHASE='reveal'; fl.classList.add('on');
+    foot.innerHTML=`<div class="btn-row"><button class="btn ghost" id="again">Повторить</button><button class="btn green" id="know">Помню</button></div>`;
+    $('#know').onclick=()=>{ proceed(entry,true,2); next(); };
+    $('#again').onclick=()=>{ proceed(entry,false,1); next(); };
+  }
+  btn.onclick=reveal;
+}
+
+/* ---- recite (prayer) ---- */
+function renderRecite(entry,c,body,foot){
+  body.innerHTML=`<div class="qtag">Молитва — учи наизусть</div>
+    <div class="recite hidden" id="rc"><div class="rt">${esc(c.title)}</div>${c.note?`<div class="rn">${esc(c.note)}</div>`:''}<div class="rx">${esc(c.text)}</div></div>`;
+  foot.innerHTML=footBtn('Показать текст','');
+  const rc=$('#rc'), btn=$('#mainBtn');
+  btn.onclick=()=>{
+    if(rc.classList.contains('hidden')){ rc.classList.remove('hidden');
+      foot.innerHTML=`<div class="btn-row"><button class="btn ghost" id="again">Ещё повторю</button><button class="btn green" id="know">Знаю</button></div>`;
+      $('#know').onclick=()=>{ markDone(entry,null); addXp(2); L.xp+=2; save(); next(); };
+      $('#again').onclick=()=>{ markDone(entry,null); if(gradeable(entry.card)){} addXp(1); L.xp+=1; save(); next(); };
+    }
+  };
+}
+
+/* ---- info (teaching) ---- */
+function renderInfo(entry,c,body,foot){
+  body.innerHTML=`<div class="qtag">${esc(c.tag||'Разбор')}</div><div class="info">${c.title?`<h4>${esc(c.title)}</h4>`:''}${c.html}</div>`;
+  foot.innerHTML=footBtn('Понятно →','green');
+  $('#mainBtn').onclick=()=>{ markDone(entry,null); addXp(1); L.xp+=1; save(); next(); };
+}
+
+function next(){ L.pos++; step(); }
+
+/* ==================== ЗАВЕРШЕНИЕ ==================== */
+function finish(){
+  bumpStreak();
+  let passNow=0;
+  if(!L.review && L.unitId){ S.units[L.unitId]=S.units[L.unitId]||{done:[]}; S.units[L.unitId].passes=(S.units[L.unitId].passes||0)+1; passNow=S.units[L.unitId].passes; }
+  save();
+  const acc = L.graded? Math.round(L.correct/L.graded*100) : 100;
+  const p=$('#player');
+  p.innerHTML=`<div class="done-screen">
+    <svg class="halo" viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="46" stroke="#E0B54A" stroke-width="3" opacity=".5"/><circle cx="60" cy="60" r="38" stroke="#BE8F2E" stroke-width="2" opacity=".4"/><path d="M60 30c2.4 4.6 6.6 7.2 6.6 12.4 0 3.9-2.9 6.6-6.6 6.6s-6.6-2.7-6.6-6.6C53.4 37.2 57.6 34.6 60 30z" fill="#E0B54A" stroke="#BE8F2E"/><path d="M60 37c1.2 2.6 3.3 3.9 3.3 6.3 0 2-1.5 3.4-3.3 3.4s-3.3-1.4-3.3-3.4c0-2.4 2.1-3.7 3.3-6.3z" fill="#A6321E"/><rect x="55" y="49" width="10" height="26" rx="2" fill="#FBF6E9" stroke="#BE8F2E"/><path d="M46 76h28l-2.6 5.4a3 3 0 0 1-2.7 1.6H51.3a3 3 0 0 1-2.7-1.6L46 76z" fill="#BE8F2E"/></svg>
+    <p class="h-eyebrow">${L.review?'Повторение пройдено':(passNow>=PASS_GOAL?'Готово! 3 прогона ✓':'Урок пройден')}</p>
+    <h2>${L.title? esc(L.title):'Готово'}</h2>
+    <div class="rw">
+      <div class="rwcard g"><div class="rl">Очки</div><div class="rv">+${L.xp}</div></div>
+      <div class="rwcard"><div class="rl">Точность</div><div class="rv">${acc}%</div></div>
+      <div class="rwcard r"><div class="rl">${L.review?'Стрик':'Прогон'}</div><div class="rv">${L.review?S.streak+'🕯️':Math.min(passNow,PASS_GOAL)+'/'+PASS_GOAL}</div></div>
+    </div>
+    <div style="width:100%;max-width:340px;margin-top:18px">
+      <button class="btn gold" id="doneBtn">Продолжить</button>
+    </div>
+  </div>`;
+  $('#doneBtn').onclick=()=>{ closePlayer(); if(S.dayXp>=DAILY_GOAL) toast('Цель дня исполнена! 🕯️'); };
+}
+
+/* ==================== СТАРТ ==================== */
+render();
+
+</script>
+</body>
+</html>
